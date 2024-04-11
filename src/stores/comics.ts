@@ -39,6 +39,14 @@ export const useComicsStore = defineStore('comics-store', {
     getComic: state => state.comics.current,
     isOldestComic: state => state.currentComic === 1,
     isNewestComic: state => state.currentComic === state.newestComicId,
+
+    formattedDate(): string {
+      const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+      const day = this.getComic.day
+      const month = monthNames[this.getComic.month - 1] // Subtract 1 because months are 0-indexed in JS
+      const year = this.getComic.year
+      return `${month} ${day}, ${year}`
+    },
   },
 
   actions: {
