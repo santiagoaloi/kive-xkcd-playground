@@ -1,0 +1,41 @@
+/* 👉 Typography */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.text,
+.text-h1,
+.text-h2,
+.text-h3,
+.text-h4,
+.text-h5,
+.text-h6,
+.text-button,
+.text-overline,
+.text-caption,
+.text-lg,
+.text-body-2,
+.text-subtitle-1,
+.text-subtitle-2,
+.v-list-item--variant-text,
+.v-label {
+  color: rgba(var(--v-theme-on-surface)) !important;
+}
+
+
+.no-transitions *:not(.v-app-bar) {
+  transition-duration: 0s !important; /* Use !important cautiously */
+}
+
+.v-btn {
+  transition-property: transform;
+  transition-duration: 0.2s;
+  transition: all 0.2s ease-in-out;
+}
+
+.v-btn:active:not(.no-transition) {
+  transform: translateY(1.2px);
+}

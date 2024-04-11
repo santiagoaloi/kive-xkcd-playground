@@ -1,0 +1,38 @@
+<script setup lang="ts">
+import { useComicsStore } from '@/stores/comics'
+
+const comicsStore = useComicsStore()
+
+/*
+ * Retrieve the value of comic query param from the current route.
+ * If the 'comic' query parameter doesn't exist, it will return an empty string ('').
+ * So we can start the app with the most recent comic.
+ */
+const comicParam = useRouteQuery('id', '')
+
+/*
+ * Watch for changes in the route query param and request
+ * the comic mathing the query param
+ */
+watchEffect(() => {
+  comicsStore.switchComic(comicParam.value)
+})
+
+/*
+ * Watch for changes in `comicsStore.currentComic`.
+ * when a new value is detected update the value of the query param
+ */
+watch(() => comicsStore.currentComic, (currentComic) => {
+  if (currentComic)
+    comicParam.value = currentComic
+})
+</script>
+
+<template>
+  <div>
+    <div class="flex flex-col gap-6">
+      <HomeHero />
+      <MasonryGallery />
+    </div>
+  </div>
+</template>
