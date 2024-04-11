@@ -26,6 +26,10 @@ watch(() => comicsStore.currentComic, (currentComic) => {
   if (currentComic)
     comicParam.value = currentComic
 })
+
+onMounted(() => {
+  comicsStore.getMostRecentComicId()
+})
 </script>
 
 <template>
