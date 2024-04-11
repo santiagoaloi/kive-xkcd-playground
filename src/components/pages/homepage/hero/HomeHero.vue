@@ -6,7 +6,7 @@ const comicsStore = useComicsStore()
 
 <template>
   <SquareImageCard
-    :height="700"
+    :height="600"
     :img=" comicsStore.getComic.img"
     :loading="comicsStore.loading && 'primary'"
   >
@@ -21,5 +21,16 @@ const comicsStore = useComicsStore()
         {{ comicsStore.getComic.alt }}
       </p>
     </div>
+
+    <template #append>
+      <VToolbar class="border-t px-6" color="transparent">
+        <ComicsActionButtons />
+
+        <VSpacer />
+        <VBtn color="grey-lighten-2" icon variant="outlined">
+          <VIcon color="pink" icon="i-mdi:heart-outline" />
+        </vbtn>
+      </VToolbar>
+    </template>
   </SquareImageCard>
 </template>
