@@ -8,7 +8,7 @@ const comicsStore = useComicsStore()
 <template>
   <div class="flex sm:flex-row gap-4 mt-5 justify-center sm:justify-start mb-6">
     <SettingsButton
-      :disabled="comicsStore.isFirstComic"
+      :disabled="comicsStore.isOldestComic"
       class="rounded-xl w-100 sm:w-auto"
       color="black-button"
       @click="comicsStore.switchComic('1')"
@@ -34,7 +34,7 @@ const comicsStore = useComicsStore()
     <SettingsButton
       class="rounded-xl w-100 sm:w-auto"
       light
-      @click="comicsStore.switchComic(comicsStore.getRandomComicNumber())"
+      @click="comicsStore.switchComic(comicsStore.getRandomComicId())"
     >
       <div>
         {{ smAndDown ? '' : 'Random' }}
@@ -44,7 +44,7 @@ const comicsStore = useComicsStore()
     </SettingsButton>
 
     <SettingsButton
-      :disabled="comicsStore.isMostRecentComic"
+      :disabled="comicsStore.isNewestComic"
       class="rounded-xl w-100 sm:w-auto"
       light
       @click="comicsStore.switchComic(comicsStore.currentComic + 1)"
@@ -58,7 +58,7 @@ const comicsStore = useComicsStore()
 
     <!-- passing an empty argument will result in returning the most recent comic -->
     <SettingsButton
-      :disabled="comicsStore.isMostRecentComic"
+      :disabled="comicsStore.isNewestComic"
 
       class="rounded-xl w-100 sm:w-auto"
       color="black-button"
