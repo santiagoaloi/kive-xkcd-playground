@@ -89,5 +89,12 @@ export const useComicsStore = defineStore('comics-store', {
         this.loading = false
       }
     },
+
+    getRandomComicNumber(this: ComicsState, min = 1, max = this.mostRecentComicId) {
+      if (max === null)
+        return min
+
+      return Math.floor(Math.random() * (max - min + 1)) + min
+    },
   },
 })
