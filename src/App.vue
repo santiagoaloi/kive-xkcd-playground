@@ -1,4 +1,3 @@
-import TheFooter from './components/TheFooter.vue';
 <template>
   <VApp class="mx-3">
     <GAppBar />
