@@ -14,7 +14,7 @@
       </div>
       <VSpacer />
 
-      <GAppBarMenuRight />
+      <ComicsActionButtons />
     </VCard>
   </VAppBar>
 </template>
