@@ -20,7 +20,7 @@ interface ComicsState {
     gallery: Comic[]
   }
   currentComic: number | null
-  mostRecentComicId: number | null
+  newestComicId: number | null
   loading: boolean
 }
 
@@ -31,14 +31,14 @@ export const useComicsStore = defineStore('comics-store', {
       gallery: [],
     },
     currentComic: null,
-    mostRecentComicId: null,
+    newestComicId: null,
     loading: false,
   }),
 
   getters: {
     getComic: state => state.comics.current,
     isOldestComic: state => state.currentComic === 1,
-    isNewestComic: state => state.currentComic === state.mostRecentComicId,
+    isNewestComic: state => state.currentComic === state.newestComicId,
   },
 
   actions: {
@@ -61,7 +61,7 @@ export const useComicsStore = defineStore('comics-store', {
 
       try {
         const { data: comicData } = await axios(url)
-        this.mostRecentComicId = comicData.num
+        this.newestComicId = comicData.num
       }
       catch (error) {
         console.error('Error fetching comic:', error)
@@ -75,6 +75,12 @@ export const useComicsStore = defineStore('comics-store', {
  * Handle all the logic for fetching the comics with the action buttons.
  */
     async switchComic(id: number) {
+      // Avoid calling the API if the user is already on the comic.
+      if (id === this.currentComic)
+        return
+
+      const router = useRouter()
+
       const url = import.meta.env.DEV
         ? `/api/${id}/info.0.json`
         : `/api/xkcd?id=${id}`
@@ -87,6 +93,7 @@ export const useComicsStore = defineStore('comics-store', {
         this.currentComic = comicData.num
       }
       catch (error) {
+        router.replace('/NotFound')
         console.error('Error fetching comic:', error)
       }
       finally {
@@ -94,11 +101,12 @@ export const useComicsStore = defineStore('comics-store', {
       }
     },
 
-    getRandomComicId(this: ComicsState, min = 1, max = this.mostRecentComicId) {
+    getRandomComicId(this: ComicsState, min = 1, max = this.newestComicId) {
       if (max === null)
         return min
 
       return Math.floor(Math.random() * (max - min + 1)) + min
     },
+
   },
 })
