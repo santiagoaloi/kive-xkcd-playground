@@ -8,7 +8,7 @@ const comicsStore = useComicsStore()
   <SquareImageCard
     :height="600"
     :img=" comicsStore.getComic.img"
-    :loading="comicsStore.loading && 'primary'"
+    :loading="comicsStore.loading && 'pink'"
   >
     <div class="p-md-5 h-full flex flex-col justify-center bg-greenx">
       <!-- <HomeHeroChip /> -->
@@ -27,9 +27,16 @@ const comicsStore = useComicsStore()
         <ComicsActionButtons />
 
         <VSpacer />
-        <VBtn color="grey-lighten-2" icon variant="outlined">
-          <VIcon color="pink" icon="i-mdi:heart-outline" />
-        </vbtn>
+
+        <div class="flex gap-3 ">
+          <VBtn color="grey-lighten-3" icon variant="outlined">
+            <VIcon color="pink" icon="i-mdi:heart-outline" />
+          </vbtn>
+
+          <VBtn color="grey-lighten-3" icon variant="outlined">
+            <VIcon color="black" icon="i-mdi:info-outline" />
+          </vbtn>
+        </div>
       </VToolbar>
     </template>
   </SquareImageCard>
