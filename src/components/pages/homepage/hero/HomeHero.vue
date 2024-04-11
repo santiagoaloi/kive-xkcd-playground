@@ -12,7 +12,6 @@ const comicsStore = useComicsStore()
   >
     <div class="p-md-5 h-full flex flex-col justify-center bg-greenx">
       <!-- <HomeHeroChip /> -->
-      <HomeHeroActionButtons />
 
       <p class="text-5xl lg:text-6xl sm:w-8/12 lg:w-auto  font-bold mb-5">
         {{ comicsStore.getComic.title }}
