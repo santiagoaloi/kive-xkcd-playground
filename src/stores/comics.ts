@@ -51,13 +51,7 @@ export const useComicsStore = defineStore('comics-store', {
  */
 
     async getNewestComicId() {
-      /*
-  * Dev: Vite proxy
-  * Prod: Vercel serverless proxy.
-  */
-      const url = import.meta.env.DEV
-        ? `/api/info.0.json`
-        : `/api/xkcd?id`
+      const url = this.constructUrl()
 
       try {
         const { data: comicData } = await axios(url)
@@ -81,9 +75,7 @@ export const useComicsStore = defineStore('comics-store', {
 
       const router = useRouter()
 
-      const url = import.meta.env.DEV
-        ? `/api/${id}/info.0.json`
-        : `/api/xkcd?id=${id}`
+      const url = this.constructUrl(id)
 
       this.loading = true
 
@@ -108,5 +100,16 @@ export const useComicsStore = defineStore('comics-store', {
       return Math.floor(Math.random() * (max - min + 1)) + min
     },
 
+    constructUrl(id: number | string = '') {
+      /*
+  * Dev: Vite proxy
+  * Prod: Vercel serverless proxy.
+  */
+
+      const isDev = import.meta.env.DEV
+      return isDev
+        ? `/api/${id}/info.0.json`
+        : `/api/xkcd?id=${id}`
+    },
   },
 })
