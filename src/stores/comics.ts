@@ -43,7 +43,7 @@ export const useComicsStore = defineStore('comics-store', {
     formattedDate(): string {
       const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
       const day = this.getComic.day
-      const month = monthNames[this.getComic.month - 1] // Subtract 1 because months are 0-indexed in JS
+      const month = monthNames[Number(this.getComic.month) - 1] // Convert month to number before subtracting 1
       const year = this.getComic.year
       return `${month} ${day}, ${year}`
     },
