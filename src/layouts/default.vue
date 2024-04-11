@@ -1,5 +1,5 @@
 <template>
-  <VMain>
+  <VMain class="h-full">
     <RouterView />
   </VMain>
 </template>
