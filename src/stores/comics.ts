@@ -37,6 +37,8 @@ export const useComicsStore = defineStore('comics-store', {
 
   getters: {
     getComic: state => state.comics.current,
+    isFirstComic: state => state.currentComic === 1,
+    isMostRecentComic: state => state.currentComic === state.mostRecentComicId,
   },
 
   actions: {
