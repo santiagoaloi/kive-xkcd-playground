@@ -11,13 +11,22 @@ const comicsStore = useComicsStore()
 const comicParam = useRouteQuery('id', '')
 
 /*
+ * Watch for changes in the route query param and request
+ * the comic mathing the query param
+ */
+watchEffect(() => {
+  comicsStore.switchComic(comicParam.value)
+})
+
+/*
  * Watch for changes in `comicsStore.currentComic`.
  * when a new value is detected update the value of the query param
  */
 watch(() => comicsStore.currentComic, (currentComic) => {
-  comicParam.value = currentComic
+  if (currentComic)
+    comicParam.value = currentComic
   comicsStore.switchComic(comicParam.value)
-}, { immediate: true })
+})
 
 onMounted(() => {
   comicsStore.getNewestComicId()
@@ -26,9 +35,8 @@ onMounted(() => {
 
 <template>
   <div>
-    <div class="flex flex-col gap-6">
+    <div class="flex flex-col gap">
       <HomeHero />
-      <MasonryGallery />
     </div>
   </div>
 </template>
