@@ -32,9 +32,9 @@ const comicsStore = useComicsStore()
     </SettingsButton>
 
     <SettingsButton
-
       class="rounded-xl w-100 sm:w-auto"
       light
+      @click="comicsStore.switchComic(comicsStore.getRandomComicNumber())"
     >
       <div>
         {{ smAndDown ? '' : 'Random' }}
@@ -75,7 +75,7 @@ const comicsStore = useComicsStore()
       light
     >
       <div>
-        Gallery
+        {{ smAndDown ? '' : 'Gallery' }}
         <VIcon icon="i-mdi:image" />
       </div>
     </SettingsButton>
