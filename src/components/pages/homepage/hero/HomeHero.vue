@@ -8,7 +8,7 @@ const comicsStore = useComicsStore()
   <SquareImageCard
     :height="700"
     :img=" comicsStore.getComic.img"
-    class="rounded-xl"
+    :loading="comicsStore.loading && 'primary'"
   >
     <div class="p-md-5 h-full flex flex-col justify-center bg-greenx">
       <!-- <HomeHeroChip /> -->
