@@ -50,7 +50,7 @@ const { mdAndUp } = useDisplay()
             :alt="props.alt"
             :height="mdAndUp ? props.height : 'auto'"
             :src="props.img"
-            class="bg-white border"
+            class="bg-white border-s"
           >
             <template #placeholder>
               <VRow
@@ -68,5 +68,6 @@ const { mdAndUp } = useDisplay()
         </template>
       </div>
     </div>
+    <slot name="append" />
   </VCard>
 </template>
