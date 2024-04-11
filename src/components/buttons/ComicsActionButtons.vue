@@ -59,14 +59,5 @@ const comicsStore = useComicsStore()
         <VIcon icon="i-mdi:page-last" />
       </div>
     </SettingsButton>
-
-    <SettingsButton
-      light
-    >
-      <div>
-        {{ smAndDown ? '' : 'Gallery' }}
-        <VIcon icon="i-mdi:image" />
-      </div>
-    </SettingsButton>
   </div>
 </template>
