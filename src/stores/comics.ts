@@ -75,16 +75,9 @@ export const useComicsStore = defineStore('comics-store', {
  * Handle all the logic for fetching the comics with the action buttons.
  */
     async switchComic(id: number) {
-      /*
- * If the user tries to go to a comic in the url and the comic doesn't exist
- * we can redirect the user to the most recent comic.
- */
-
-      // Normalize the ID to ensure it's a valid number and not greater than the most recent comic ID
-      id = this.normalizeId(id, this.mostRecentComicId ?? 0)
-
-      // Construct the URL based on the environment (development or production)
-      const url = this.constructUrl(id, import.meta.env.DEV)
+      const url = import.meta.env.DEV
+        ? `/api/${id}/info.0.json`
+        : `/api/xkcd?id=${id}`
 
       this.loading = true
 
@@ -107,20 +100,5 @@ export const useComicsStore = defineStore('comics-store', {
 
       return Math.floor(Math.random() * (max - min + 1)) + min
     },
-
-    normalizeId(id: number, mostRecentComicId: number) {
-      let normalizedId = typeof id === 'number' && !Number.isNaN(id) ? id : mostRecentComicId || 0
-      if (normalizedId > mostRecentComicId)
-        normalizedId = mostRecentComicId || 0
-
-      return normalizedId
-    },
-
-    constructUrl(id: number, isDev: boolean): string {
-      return isDev
-        ? `/api/${id}/info.0.json`
-        : `/api/xkcd?id=${id}`
-    },
-
   },
 })
