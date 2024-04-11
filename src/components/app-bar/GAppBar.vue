@@ -1,18 +1,14 @@
-<script setup>
-const { smAndDown } = useDisplay()
-</script>
-
 <template>
   <VAppBar
     :height="100"
     class="px-3 " color="background"
   >
     <VCard
-      :style="`width: ${1450}px`" class="mx-auto flex items-center p-7 mt-2 elevation-0 d"
+      :style="`width: ${1450}px`" class="mx-auto flex items-center p-4 justify-center"
       color="app-background" height="68"
     >
       <template v-if="!smAndDown">
-        <KiveLogo class="ml-5" />
+        <KiveLogo class="ml-5 " />
 
         <div class="text-lg">
           XKCD Comics
@@ -20,7 +16,12 @@ const { smAndDown } = useDisplay()
         <VSpacer />
       </template>
 
-      <ComicsActionButtons />
+      <SettingsButton>
+        <div>
+          <VIcon icon="i-mdi:image" start />
+        </div>
+        Comics Gallery
+      </SettingsButton>
     </VCard>
   </VAppBar>
 </template>
