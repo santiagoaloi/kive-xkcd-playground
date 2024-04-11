@@ -25,11 +25,6 @@ defineProps({
     default: false,
   },
 
-  submit: {
-    type: Boolean,
-    default: false,
-  },
-
   title: {
     type: String,
     default: '',
@@ -59,7 +54,7 @@ defineProps({
       :size="size"
       :type="!disabled && submit ? 'submit' : 'button'"
       block
-      class="rounded-lg"
+      class="rounded-xl w-100 sm:w-auto"
       elevation="0"
       @click.stop
     >
