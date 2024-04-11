@@ -1,7 +1,9 @@
 <script setup lang="ts">
+import { useAppStore } from '@/stores/app'
 import { useComicsStore } from '@/stores/comics'
 
 const comicsStore = useComicsStore()
+const appStore = useAppStore()
 </script>
 
 <template>
@@ -33,11 +35,28 @@ const comicsStore = useComicsStore()
             <VIcon color="pink" icon="i-mdi:heart-outline" />
           </vbtn>
 
-          <VBtn color="grey-lighten-3" icon variant="outlined">
+          <VBtn color="grey-lighten-3" icon variant="outlined" @click="appStore.isDialogActive = true">
             <VIcon color="black" icon="i-mdi:info-outline" />
           </vbtn>
         </div>
       </VToolbar>
     </template>
   </SquareImageCard>
+
+  <BaseDialog v-model="appStore.isDialogActive" title="Short Details">
+    <div>
+      Posted {{ comicsStore.formattedDate }}
+    </div>
+
+    <VRow class="mt-2">
+      <VCol>
+        <div>
+          Comic Id
+        </div>
+        <div class="text-h5 mt-1">
+          {{ comicsStore.getComic.num }}
+        </div>
+      </VCol>
+    </VRow>
+  </BaseDialog>
 </template>
