@@ -11,16 +11,6 @@ const props = defineProps({
     default: '',
   },
 
-  dense: {
-    type: Boolean,
-    default: false,
-  },
-
-  transparent: {
-    type: Boolean,
-    default: false,
-  },
-
   img: {
     type: String,
     default: '',
@@ -59,7 +49,7 @@ const { mdAndUp } = useDisplay()
                 justify="center"
               >
                 <VProgressCircular
-                  color="primary"
+                  color="pink"
                   indeterminate
                 />
               </VRow>
