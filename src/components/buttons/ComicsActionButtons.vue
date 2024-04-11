@@ -9,8 +9,6 @@ const comicsStore = useComicsStore()
   <div class="flex sm:flex-row gap-4 mt-5 justify-center sm:justify-start mb-6">
     <SettingsButton
       :disabled="comicsStore.isOldestComic"
-      class="rounded-xl w-100 sm:w-auto"
-      color="black-button"
       @click="comicsStore.switchComic('1')"
     >
       <div>
@@ -20,8 +18,6 @@ const comicsStore = useComicsStore()
 
     <SettingsButton
       :disabled="comicsStore.currentComic === 1"
-      class="rounded-xl w-100 sm:w-auto"
-      color="black-button"
       light
       @click="comicsStore.switchComic(comicsStore.currentComic - 1)"
     >
@@ -32,7 +28,6 @@ const comicsStore = useComicsStore()
     </SettingsButton>
 
     <SettingsButton
-      class="rounded-xl w-100 sm:w-auto"
       light
       @click="comicsStore.switchComic(comicsStore.getRandomComicId())"
     >
@@ -45,7 +40,6 @@ const comicsStore = useComicsStore()
 
     <SettingsButton
       :disabled="comicsStore.isNewestComic"
-      class="rounded-xl w-100 sm:w-auto"
       light
       @click="comicsStore.switchComic(comicsStore.currentComic + 1)"
     >
@@ -59,9 +53,6 @@ const comicsStore = useComicsStore()
     <!-- passing an empty argument will result in returning the most recent comic -->
     <SettingsButton
       :disabled="comicsStore.isNewestComic"
-
-      class="rounded-xl w-100 sm:w-auto"
-      color="black-button"
       @click="comicsStore.switchComic('')"
     >
       <div>
@@ -70,8 +61,6 @@ const comicsStore = useComicsStore()
     </SettingsButton>
 
     <SettingsButton
-
-      class="rounded-xl w-100 sm:w-auto"
       light
     >
       <div>
