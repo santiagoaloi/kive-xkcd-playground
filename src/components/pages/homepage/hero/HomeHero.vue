@@ -17,7 +17,7 @@ const comicsStore = useComicsStore()
         {{ comicsStore.getComic.title }}
       </p>
 
-      <p class="we-made-job-hunting text-2xl">
+      <p class="text-2xl">
         {{ comicsStore.getComic.alt }}
       </p>
     </div>
