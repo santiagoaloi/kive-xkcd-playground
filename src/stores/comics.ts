@@ -37,8 +37,8 @@ export const useComicsStore = defineStore('comics-store', {
 
   getters: {
     getComic: state => state.comics.current,
-    isFirstComic: state => state.currentComic === 1,
-    isMostRecentComic: state => state.currentComic === state.mostRecentComicId,
+    isOldestComic: state => state.currentComic === 1,
+    isNewestComic: state => state.currentComic === state.mostRecentComicId,
   },
 
   actions: {
@@ -50,7 +50,11 @@ export const useComicsStore = defineStore('comics-store', {
  * from going to a comic that doesn't exist.
  */
 
-    async getMostRecentComicId() {
+    async getNewestComicId() {
+      /*
+  * Dev: Vite proxy
+  * Prod: Vercel serverless proxy.
+  */
       const url = import.meta.env.DEV
         ? `/api/info.0.json`
         : `/api/xkcd?id`
@@ -90,7 +94,7 @@ export const useComicsStore = defineStore('comics-store', {
       }
     },
 
-    getRandomComicNumber(this: ComicsState, min = 1, max = this.mostRecentComicId) {
+    getRandomComicId(this: ComicsState, min = 1, max = this.mostRecentComicId) {
       if (max === null)
         return min
 
