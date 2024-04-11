@@ -75,6 +75,14 @@ export const useComicsStore = defineStore('comics-store', {
  * Handle all the logic for fetching the comics with the action buttons.
  */
     async switchComic(id: number) {
+      /*
+ * If the user tries to go to a comic in the url and the comic doesn't exist
+ * we can redirect the user to the most recent comic.
+ */
+
+      if (id > this.mostRecentComicId!)
+        id = this.mostRecentComicId! || 0
+
       const url = import.meta.env.DEV
         ? `/api/${id}/info.0.json`
         : `/api/xkcd?id=${id}`
