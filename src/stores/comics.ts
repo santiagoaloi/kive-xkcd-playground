@@ -57,7 +57,6 @@ export const useComicsStore = defineStore('comics-store', {
 
       try {
         const { data: comicData } = await axios(url)
-        this.comics.current = comicData
         this.mostRecentComicId = comicData.num
       }
       catch (error) {
