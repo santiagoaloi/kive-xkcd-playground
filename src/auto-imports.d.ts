@@ -6,19 +6,35 @@
 export {}
 declare global {
   const EffectScope: typeof import('vue')['EffectScope']
+  const GoogleAuthProvider: typeof import('firebase/auth')['GoogleAuthProvider']
+  const addDoc: typeof import('firebase/firestore')['addDoc']
+  const arrayUnion: typeof import('firebase/firestore')['arrayUnion']
+  const auth: typeof import('@/firebase')['auth']
   const axios: typeof import('axios')['default']
+  const capitalize: typeof import('./utils/methods.js')['capitalize']
+  const collection: typeof import('firebase/firestore')['collection']
   const computed: typeof import('vue')['computed']
-  const computedEager: typeof import('@vueuse/core')['computedEager']
   const createApp: typeof import('vue')['createApp']
   const createTemplatePromise: typeof import('@vueuse/core')['createTemplatePromise']
+  const createUserWithEmailAndPassword: typeof import('firebase/auth')['createUserWithEmailAndPassword']
   const createVuetify: typeof import('vuetify')['createVuetify']
   const customRef: typeof import('vue')['customRef']
+  const db: typeof import('@/firebase')['db']
   const defineAsyncComponent: typeof import('vue')['defineAsyncComponent']
   const defineComponent: typeof import('vue')['defineComponent']
+  const deleteDoc: typeof import('firebase/firestore')['deleteDoc']
+  const doc: typeof import('firebase/firestore')['doc']
   const effectScope: typeof import('vue')['effectScope']
+  const functions: typeof import('@/firebase')['functions']
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
   const getCurrentScope: typeof import('vue')['getCurrentScope']
+  const getDoc: typeof import('firebase/firestore')['getDoc']
+  const getDocs: typeof import('firebase/firestore')['getDocs']
+  const getDownloadURL: typeof import('firebase/storage')['getDownloadURL']
+  const getIdToken: typeof import('firebase/auth')['getIdToken']
+  const getUserState: typeof import('@/firebase')['getUserState']
   const h: typeof import('vue')['h']
+  const httpsCallable: typeof import('firebase/functions')['httpsCallable']
   const inject: typeof import('vue')['inject']
   const isProxy: typeof import('vue')['isProxy']
   const isReactive: typeof import('vue')['isReactive']
@@ -37,17 +53,25 @@ declare global {
   const onRenderTriggered: typeof import('vue')['onRenderTriggered']
   const onScopeDispose: typeof import('vue')['onScopeDispose']
   const onServerPrefetch: typeof import('vue')['onServerPrefetch']
+  const onSnapshot: typeof import('firebase/firestore')['onSnapshot']
   const onUnmounted: typeof import('vue')['onUnmounted']
   const onUpdated: typeof import('vue')['onUpdated']
   const provide: typeof import('vue')['provide']
+  const query: typeof import('firebase/firestore')['query']
   const reactive: typeof import('vue')['reactive']
   const readonly: typeof import('vue')['readonly']
   const ref: typeof import('vue')['ref']
   const refAutoReset: typeof import('@vueuse/core')['refAutoReset']
   const resolveComponent: typeof import('vue')['resolveComponent']
+  const setDoc: typeof import('firebase/firestore')['setDoc']
   const shallowReactive: typeof import('vue')['shallowReactive']
   const shallowReadonly: typeof import('vue')['shallowReadonly']
   const shallowRef: typeof import('vue')['shallowRef']
+  const signInWithEmailAndPassword: typeof import('firebase/auth')['signInWithEmailAndPassword']
+  const signInWithPopup: typeof import('firebase/auth')['signInWithPopup']
+  const signOut: typeof import('firebase/auth')['signOut']
+  const storage: typeof import('@/firebase')['storage']
+  const storageRef: typeof import('firebase/storage')['ref']
   const stores: typeof import('./stores/index')['default']
   const toRaw: typeof import('vue')['toRaw']
   const toRef: typeof import('vue')['toRef']
@@ -55,8 +79,13 @@ declare global {
   const toValue: typeof import('vue')['toValue']
   const triggerRef: typeof import('vue')['triggerRef']
   const unref: typeof import('vue')['unref']
+  const updateDoc: typeof import('firebase/firestore')['updateDoc']
+  const uploadBytes: typeof import('firebase/storage')['uploadBytes']
+  const uploadBytesResumable: typeof import('firebase/storage')['uploadBytesResumable']
+  const uploadTaskSnapshot: typeof import('firebase/storage')['uploadTaskSnapshot']
   const useAppStore: typeof import('./stores/app')['useAppStore']
   const useAttrs: typeof import('vue')['useAttrs']
+  const useAuthStore: typeof import('./stores/auth')['useAuthStore']
   const useClipboard: typeof import('@vueuse/core')['useClipboard']
   const useColorMode: typeof import('@vueuse/core')['useColorMode']
   const useComicsStore: typeof import('./stores/comics')['useComicsStore']
@@ -65,6 +94,7 @@ declare global {
   const useCssVars: typeof import('vue')['useCssVars']
   const useDebounceFn: typeof import('@vueuse/core')['useDebounceFn']
   const useDisplay: typeof import('vuetify')['useDisplay']
+  const useProfileStore: typeof import('./stores/user-profile')['useProfileStore']
   const useRoute: typeof import('vue-router/auto')['useRoute']
   const useRouteQuery: typeof import('@vueuse/router')['useRouteQuery']
   const useRouter: typeof import('vue-router/auto')['useRouter']
@@ -72,12 +102,14 @@ declare global {
   const useSlots: typeof import('vue')['useSlots']
   const useTheme: typeof import('vuetify')['useTheme']
   const useToggle: typeof import('@vueuse/core')['useToggle']
+  const useUserProfileStore: typeof import('./stores/user-profile')['useUserProfileStore']
   const watch: typeof import('vue')['watch']
   const watchEffect: typeof import('vue')['watchEffect']
   const watchImmediate: typeof import('@vueuse/core')['watchImmediate']
   const watchPostEffect: typeof import('vue')['watchPostEffect']
   const watchSyncEffect: typeof import('vue')['watchSyncEffect']
   const whenever: typeof import('@vueuse/core')['whenever']
+  const where: typeof import('firebase/firestore')['where']
 }
 // for type re-export
 declare global {
@@ -91,17 +123,34 @@ declare module 'vue' {
   interface GlobalComponents {}
   interface ComponentCustomProperties {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
+    readonly GoogleAuthProvider: UnwrapRef<typeof import('firebase/auth')['GoogleAuthProvider']>
+    readonly addDoc: UnwrapRef<typeof import('firebase/firestore')['addDoc']>
+    readonly arrayUnion: UnwrapRef<typeof import('firebase/firestore')['arrayUnion']>
+    readonly auth: UnwrapRef<typeof import('@/firebase')['auth']>
     readonly axios: UnwrapRef<typeof import('axios')['default']>
+    readonly capitalize: UnwrapRef<typeof import('./utils/methods.js')['capitalize']>
+    readonly collection: UnwrapRef<typeof import('firebase/firestore')['collection']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
+    readonly createUserWithEmailAndPassword: UnwrapRef<typeof import('firebase/auth')['createUserWithEmailAndPassword']>
     readonly createVuetify: UnwrapRef<typeof import('vuetify')['createVuetify']>
     readonly customRef: UnwrapRef<typeof import('vue')['customRef']>
+    readonly db: UnwrapRef<typeof import('@/firebase')['db']>
     readonly defineAsyncComponent: UnwrapRef<typeof import('vue')['defineAsyncComponent']>
     readonly defineComponent: UnwrapRef<typeof import('vue')['defineComponent']>
+    readonly deleteDoc: UnwrapRef<typeof import('firebase/firestore')['deleteDoc']>
+    readonly doc: UnwrapRef<typeof import('firebase/firestore')['doc']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
+    readonly functions: UnwrapRef<typeof import('@/firebase')['functions']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
+    readonly getDoc: UnwrapRef<typeof import('firebase/firestore')['getDoc']>
+    readonly getDocs: UnwrapRef<typeof import('firebase/firestore')['getDocs']>
+    readonly getDownloadURL: UnwrapRef<typeof import('firebase/storage')['getDownloadURL']>
+    readonly getIdToken: UnwrapRef<typeof import('firebase/auth')['getIdToken']>
+    readonly getUserState: UnwrapRef<typeof import('@/firebase')['getUserState']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
+    readonly httpsCallable: UnwrapRef<typeof import('firebase/functions')['httpsCallable']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
     readonly isProxy: UnwrapRef<typeof import('vue')['isProxy']>
     readonly isReactive: UnwrapRef<typeof import('vue')['isReactive']>
@@ -120,16 +169,24 @@ declare module 'vue' {
     readonly onRenderTriggered: UnwrapRef<typeof import('vue')['onRenderTriggered']>
     readonly onScopeDispose: UnwrapRef<typeof import('vue')['onScopeDispose']>
     readonly onServerPrefetch: UnwrapRef<typeof import('vue')['onServerPrefetch']>
+    readonly onSnapshot: UnwrapRef<typeof import('firebase/firestore')['onSnapshot']>
     readonly onUnmounted: UnwrapRef<typeof import('vue')['onUnmounted']>
     readonly onUpdated: UnwrapRef<typeof import('vue')['onUpdated']>
     readonly provide: UnwrapRef<typeof import('vue')['provide']>
+    readonly query: UnwrapRef<typeof import('firebase/firestore')['query']>
     readonly reactive: UnwrapRef<typeof import('vue')['reactive']>
     readonly readonly: UnwrapRef<typeof import('vue')['readonly']>
     readonly ref: UnwrapRef<typeof import('vue')['ref']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
+    readonly setDoc: UnwrapRef<typeof import('firebase/firestore')['setDoc']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
+    readonly signInWithEmailAndPassword: UnwrapRef<typeof import('firebase/auth')['signInWithEmailAndPassword']>
+    readonly signInWithPopup: UnwrapRef<typeof import('firebase/auth')['signInWithPopup']>
+    readonly signOut: UnwrapRef<typeof import('firebase/auth')['signOut']>
+    readonly storage: UnwrapRef<typeof import('@/firebase')['storage']>
+    readonly storageRef: UnwrapRef<typeof import('firebase/storage')['ref']>
     readonly stores: UnwrapRef<typeof import('./stores/index')['default']>
     readonly toRaw: UnwrapRef<typeof import('vue')['toRaw']>
     readonly toRef: UnwrapRef<typeof import('vue')['toRef']>
@@ -137,7 +194,13 @@ declare module 'vue' {
     readonly toValue: UnwrapRef<typeof import('vue')['toValue']>
     readonly triggerRef: UnwrapRef<typeof import('vue')['triggerRef']>
     readonly unref: UnwrapRef<typeof import('vue')['unref']>
+    readonly updateDoc: UnwrapRef<typeof import('firebase/firestore')['updateDoc']>
+    readonly uploadBytes: UnwrapRef<typeof import('firebase/storage')['uploadBytes']>
+    readonly uploadBytesResumable: UnwrapRef<typeof import('firebase/storage')['uploadBytesResumable']>
+    readonly uploadTaskSnapshot: UnwrapRef<typeof import('firebase/storage')['uploadTaskSnapshot']>
+    readonly useAppStore: UnwrapRef<typeof import('./stores/app')['useAppStore']>
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
+    readonly useAuthStore: UnwrapRef<typeof import('./stores/auth')['useAuthStore']>
     readonly useComicsStore: UnwrapRef<typeof import('./stores/comics')['useComicsStore']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
@@ -147,27 +210,46 @@ declare module 'vue' {
     readonly useRouter: UnwrapRef<typeof import('vue-router/auto')['useRouter']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
     readonly useTheme: UnwrapRef<typeof import('vuetify')['useTheme']>
+    readonly useUserProfileStore: UnwrapRef<typeof import('./stores/user-profile')['useUserProfileStore']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchEffect: UnwrapRef<typeof import('vue')['watchEffect']>
     readonly watchPostEffect: UnwrapRef<typeof import('vue')['watchPostEffect']>
     readonly watchSyncEffect: UnwrapRef<typeof import('vue')['watchSyncEffect']>
+    readonly where: UnwrapRef<typeof import('firebase/firestore')['where']>
   }
 }
 declare module '@vue/runtime-core' {
   interface GlobalComponents {}
   interface ComponentCustomProperties {
     readonly EffectScope: UnwrapRef<typeof import('vue')['EffectScope']>
+    readonly GoogleAuthProvider: UnwrapRef<typeof import('firebase/auth')['GoogleAuthProvider']>
+    readonly addDoc: UnwrapRef<typeof import('firebase/firestore')['addDoc']>
+    readonly arrayUnion: UnwrapRef<typeof import('firebase/firestore')['arrayUnion']>
+    readonly auth: UnwrapRef<typeof import('@/firebase')['auth']>
     readonly axios: UnwrapRef<typeof import('axios')['default']>
+    readonly capitalize: UnwrapRef<typeof import('./utils/methods.js')['capitalize']>
+    readonly collection: UnwrapRef<typeof import('firebase/firestore')['collection']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
+    readonly createUserWithEmailAndPassword: UnwrapRef<typeof import('firebase/auth')['createUserWithEmailAndPassword']>
     readonly createVuetify: UnwrapRef<typeof import('vuetify')['createVuetify']>
     readonly customRef: UnwrapRef<typeof import('vue')['customRef']>
+    readonly db: UnwrapRef<typeof import('@/firebase')['db']>
     readonly defineAsyncComponent: UnwrapRef<typeof import('vue')['defineAsyncComponent']>
     readonly defineComponent: UnwrapRef<typeof import('vue')['defineComponent']>
+    readonly deleteDoc: UnwrapRef<typeof import('firebase/firestore')['deleteDoc']>
+    readonly doc: UnwrapRef<typeof import('firebase/firestore')['doc']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
+    readonly functions: UnwrapRef<typeof import('@/firebase')['functions']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
+    readonly getDoc: UnwrapRef<typeof import('firebase/firestore')['getDoc']>
+    readonly getDocs: UnwrapRef<typeof import('firebase/firestore')['getDocs']>
+    readonly getDownloadURL: UnwrapRef<typeof import('firebase/storage')['getDownloadURL']>
+    readonly getIdToken: UnwrapRef<typeof import('firebase/auth')['getIdToken']>
+    readonly getUserState: UnwrapRef<typeof import('@/firebase')['getUserState']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
+    readonly httpsCallable: UnwrapRef<typeof import('firebase/functions')['httpsCallable']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
     readonly isProxy: UnwrapRef<typeof import('vue')['isProxy']>
     readonly isReactive: UnwrapRef<typeof import('vue')['isReactive']>
@@ -186,16 +268,24 @@ declare module '@vue/runtime-core' {
     readonly onRenderTriggered: UnwrapRef<typeof import('vue')['onRenderTriggered']>
     readonly onScopeDispose: UnwrapRef<typeof import('vue')['onScopeDispose']>
     readonly onServerPrefetch: UnwrapRef<typeof import('vue')['onServerPrefetch']>
+    readonly onSnapshot: UnwrapRef<typeof import('firebase/firestore')['onSnapshot']>
     readonly onUnmounted: UnwrapRef<typeof import('vue')['onUnmounted']>
     readonly onUpdated: UnwrapRef<typeof import('vue')['onUpdated']>
     readonly provide: UnwrapRef<typeof import('vue')['provide']>
+    readonly query: UnwrapRef<typeof import('firebase/firestore')['query']>
     readonly reactive: UnwrapRef<typeof import('vue')['reactive']>
     readonly readonly: UnwrapRef<typeof import('vue')['readonly']>
     readonly ref: UnwrapRef<typeof import('vue')['ref']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
+    readonly setDoc: UnwrapRef<typeof import('firebase/firestore')['setDoc']>
     readonly shallowReactive: UnwrapRef<typeof import('vue')['shallowReactive']>
     readonly shallowReadonly: UnwrapRef<typeof import('vue')['shallowReadonly']>
     readonly shallowRef: UnwrapRef<typeof import('vue')['shallowRef']>
+    readonly signInWithEmailAndPassword: UnwrapRef<typeof import('firebase/auth')['signInWithEmailAndPassword']>
+    readonly signInWithPopup: UnwrapRef<typeof import('firebase/auth')['signInWithPopup']>
+    readonly signOut: UnwrapRef<typeof import('firebase/auth')['signOut']>
+    readonly storage: UnwrapRef<typeof import('@/firebase')['storage']>
+    readonly storageRef: UnwrapRef<typeof import('firebase/storage')['ref']>
     readonly stores: UnwrapRef<typeof import('./stores/index')['default']>
     readonly toRaw: UnwrapRef<typeof import('vue')['toRaw']>
     readonly toRef: UnwrapRef<typeof import('vue')['toRef']>
@@ -203,7 +293,13 @@ declare module '@vue/runtime-core' {
     readonly toValue: UnwrapRef<typeof import('vue')['toValue']>
     readonly triggerRef: UnwrapRef<typeof import('vue')['triggerRef']>
     readonly unref: UnwrapRef<typeof import('vue')['unref']>
+    readonly updateDoc: UnwrapRef<typeof import('firebase/firestore')['updateDoc']>
+    readonly uploadBytes: UnwrapRef<typeof import('firebase/storage')['uploadBytes']>
+    readonly uploadBytesResumable: UnwrapRef<typeof import('firebase/storage')['uploadBytesResumable']>
+    readonly uploadTaskSnapshot: UnwrapRef<typeof import('firebase/storage')['uploadTaskSnapshot']>
+    readonly useAppStore: UnwrapRef<typeof import('./stores/app')['useAppStore']>
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
+    readonly useAuthStore: UnwrapRef<typeof import('./stores/auth')['useAuthStore']>
     readonly useComicsStore: UnwrapRef<typeof import('./stores/comics')['useComicsStore']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
@@ -213,9 +309,11 @@ declare module '@vue/runtime-core' {
     readonly useRouter: UnwrapRef<typeof import('vue-router/auto')['useRouter']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
     readonly useTheme: UnwrapRef<typeof import('vuetify')['useTheme']>
+    readonly useUserProfileStore: UnwrapRef<typeof import('./stores/user-profile')['useUserProfileStore']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchEffect: UnwrapRef<typeof import('vue')['watchEffect']>
     readonly watchPostEffect: UnwrapRef<typeof import('vue')['watchPostEffect']>
     readonly watchSyncEffect: UnwrapRef<typeof import('vue')['watchSyncEffect']>
+    readonly where: UnwrapRef<typeof import('firebase/firestore')['where']>
   }
 }
