@@ -1,12 +1,18 @@
 <template>
   <VApp class="mx-3">
-    <GAppBar />
+    <AuthProvider>
+      <GAppBar />
 
-    <VSheet
-      class="mx-auto w-100 bg-transparent h-100"
-      max-width="1450"
-    >
-      <RouterView />
-    </VSheet>
+      <VSheet
+        class="mx-auto w-100 bg-transparent h-100"
+        max-width="1450"
+      >
+        <!-- This handles layouts only -->
+        <RouterView />
+      </VSheet>
+
+      <!-- Login Dialog can be called from anywhere -->
+      <LoginDialog />
+    </AuthProvider>
   </VApp>
 </template>
