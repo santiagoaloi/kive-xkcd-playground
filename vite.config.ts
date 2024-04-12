@@ -44,6 +44,46 @@ export default defineConfig({
 
           'axios': [['default', 'axios']],
 
+          // Firestore Database
+          'firebase/firestore': [
+            'updateDoc',
+            'arrayUnion',
+            'doc',
+            'getDoc',
+            'getDocs',
+            'setDoc',
+            'addDoc',
+            'where',
+            'query',
+            'collection',
+            'onSnapshot',
+            'deleteDoc',
+          ],
+
+          // Firestore Storage
+          'firebase/storage': [
+            'uploadBytesResumable',
+            'uploadTaskSnapshot',
+            'getDownloadURL',
+            ['ref', 'storageRef'],
+            'uploadBytes',
+          ],
+
+          // Functions
+          'firebase/functions': ['httpsCallable'],
+
+          // // Authentication
+          'firebase/auth': [
+            'GoogleAuthProvider',
+            'signInWithPopup',
+            'signInWithEmailAndPassword',
+            'signOut',
+            'getIdToken',
+            'createUserWithEmailAndPassword',
+          ],
+
+          // Global firebase exports
+          '@/firebase': ['auth', 'db', 'functions', 'getUserState', 'storage'],
         },
 
       ],
@@ -101,6 +141,8 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),
+      '@U': fileURLToPath(new URL('./src/utils', import.meta.url)),
+
     },
     extensions: [
       '.js',
