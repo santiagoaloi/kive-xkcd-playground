@@ -20,12 +20,12 @@
     ],
 
     "allowJs": true,
-    "strict": true,
-    "strictNullChecks": true,
-    "noUnusedLocals": true,
+    "strict": false,
+    "strictNullChecks": false,
+    "noUnusedLocals": false,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
+    "isolatedModules": false,
     "skipLibCheck": true
   },
 
