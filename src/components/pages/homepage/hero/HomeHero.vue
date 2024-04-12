@@ -35,7 +35,7 @@ const appStore = useAppStore()
             <VIcon color="pink" icon="i-mdi:heart-outline" />
           </vbtn>
 
-          <VBtn color="grey-lighten-3" icon variant="outlined" @click="appStore.isDialogActive = true">
+          <VBtn color="grey-lighten-3" icon variant="outlined" @click="appStore.comicDetailsDialog = true">
             <VIcon color="black" icon="i-mdi:info-outline" />
           </vbtn>
         </div>
@@ -43,20 +43,23 @@ const appStore = useAppStore()
     </template>
   </SquareImageCard>
 
-  <BaseDialog v-model="appStore.isDialogActive" title="Short Details">
+  <BaseDialog v-model="appStore.comicDetailsDialog" title="Short Details for nerds">
     <div>
       Posted {{ comicsStore.formattedDate }}
     </div>
 
-    <VRow class="mt-2">
-      <VCol>
-        <div>
-          Comic Id
-        </div>
-        <div class="text-h5 mt-1">
-          {{ comicsStore.getComic.num }}
-        </div>
-      </VCol>
-    </VRow>
+    <div class="mt-5">
+      Comic Id
+    </div>
+    <div class="text-h5 mt-1">
+      {{ comicsStore.getComic.num }}
+    </div>
+
+    <div class="mt-5">
+      Image URL (for hotlinking/embedding)
+    </div>
+    <div class="mt-1 text-pink">
+      {{ comicsStore.getComic.img }}
+    </div>
   </BaseDialog>
 </template>
