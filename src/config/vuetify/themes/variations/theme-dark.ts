@@ -1,4 +1,4 @@
-import { commonThemeStructure } from '../theme-structure'
+import { commonThemeStructure } from '../theme-structure.js'
 
 export default {
   dark: {
