@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import type { GoogleAuthProvider, User } from 'firebase/auth'
+import type { User } from 'firebase/auth'
 import type { DocumentReference, DocumentSnapshot } from 'firebase/firestore'
 
 interface AuthState {
@@ -115,11 +115,13 @@ export const useAuthStore = defineStore('auth-store', {
         const user: User = userCredential.user
         const userExists = await this.checkIfUserExists(user.uid)
 
-        if (!userExists) {
-          const profileCreated = await this.createUserProfile(user)
-          if (!profileCreated)
-            return
-        }
+        if (!userExists)
+
+          await this.createUserProfile(user)
+
+        // const profileCreated = await this.createUserProfile(user)
+        // if (!profileCreated)
+        //   return
       }
       catch (error: any) {
         this.handleGoogleAuthenticationError(error)
@@ -127,7 +129,7 @@ export const useAuthStore = defineStore('auth-store', {
     },
     // ...
 
-    async signInWithGooglePopup(): Promise<UserCredential> {
+    async  signInWithGooglePopup() {
       const provider = new GoogleAuthProvider()
       provider.setCustomParameters({
         prompt: 'select_account',
