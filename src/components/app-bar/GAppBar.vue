@@ -1,3 +1,12 @@
+<script setup lang="ts">
+import { useAppStore } from '@/stores/app'
+
+const appStore = useAppStore()
+const authStore = useAuthStore()
+
+const { isLoggedIn } = toRefs(authStore)
+</script>
+
 <template>
   <VAppBar
     :height="100"
@@ -16,12 +25,15 @@
         <VSpacer />
       </template>
 
-      <SettingsButton>
-        <div>
-          <VIcon icon="i-mdi:image" start />
-        </div>
-        Comics Gallery
-      </SettingsButton>
+      <template v-if="!isLoggedIn">
+        <SettingsButton size="large" @click="appStore.loginDialog = true">
+          Sign in
+        </SettingsButton>
+      </template>
+
+      <template v-else>
+        <GAppBarProfileMenu />
+      </template>
     </VCard>
   </VAppBar>
 </template>
