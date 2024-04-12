@@ -1,13 +1,15 @@
 import { defineStore } from 'pinia'
 
 interface appState {
-  isDialogActive: boolean
+  loginDialog: boolean
+  comicDetailsDialog: boolean
+
 }
 
 export const useAppStore = defineStore('app-store', {
   state: (): appState => ({
-
-    isDialogActive: false,
+    comicDetailsDialog: false,
+    loginDialog: false,
   }),
 
 })
