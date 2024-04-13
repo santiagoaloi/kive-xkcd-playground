@@ -5,7 +5,7 @@ import { browserLocalPersistence, browserPopupRedirectResolver, initializeAuth, 
 
 import { getFunctions } from 'firebase/functions'
 
-import { firebaseOptions } from './options'
+import { firebaseOptions } from './options.js'
 
 // Initialize Firebase with a "default" Firebase project
 const app = initializeApp(firebaseOptions())
