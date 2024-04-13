@@ -10,14 +10,14 @@ const { isLoggedIn } = toRefs(authStore)
 <template>
   <VAppBar
     :height="100"
-    class="px-3 " color="background"
+    class="px-3" color="background"
   >
     <VCard
       :style="`width: ${1450}px`" class="mx-auto flex items-center p-4 justify-center"
       color="app-background" height="68"
     >
       <template v-if="!smAndDown">
-        <KiveLogo class="ml-5 " />
+        <KiveLogo />
 
         <div class="text-lg">
           XKCD Comics
