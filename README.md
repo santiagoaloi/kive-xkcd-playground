@@ -5,7 +5,7 @@
 ![Vue.js](https://img.shields.io/static/v1?style=flat&message=Vue.js&color=373e47&logo=Vue.js&logoColor=4FC08D&label=)
 ![Vite](https://img.shields.io/static/v1?style=flat&message=Vite&color=373e47&logo=Vite&logoColor=967cff&label=)
 ![rollup.js](https://img.shields.io/static/v1?style=flat&message=rollup.js&color=373e47&logo=rollup.js&logoColor=fe3333&label=)
-![Pnpm](https://img.shields.io/static/v1?style=flat&message=Pnpm&color=373e47&logo=Pnpm&logoColor=FFFFFF&label=)
+![Yarn](https://img.shields.io/static/v1?style=flat&message=Yarn&color=373e47&logo=Yarn&logoColor=FFFFFF&label=)
 ![Vercel](https://img.shields.io/static/v1?style=flat&message=Vercel&color=373e47&logo=Vercel&logoColor=FFFFFF&label=)
 
 <p align="start">
