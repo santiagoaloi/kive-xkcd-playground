@@ -1,4 +1,3 @@
-import type { IncomingMessage, ServerResponse } from 'node:http'
 import axios from 'axios'
 
 /*
@@ -6,16 +5,14 @@ import axios from 'axios'
  * I'm implementing a server-side proxy on Vercel to make requests to  xkcd.com.
  */
 
-export default async (req: IncomingMessage & { query: { [key: string]: string } }, res: ServerResponse) => {
+export default async (req, res) => {
   const { id } = req.query
 
   try {
     const { data } = await axios.get(`https://xkcd.com/${id}/info.0.json`)
-    res.statusCode = 200
-    res.end(JSON.stringify(data))
+    res.status(200).json(data)
   }
   catch (error) {
-    res.statusCode = 500
-    res.end(JSON.stringify({ error: 'Error fetching data' }))
+    res.status(500).json({ error: 'Error fetching data' })
   }
 }
