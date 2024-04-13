@@ -68,11 +68,11 @@ export const useAuthStore = defineStore('auth-store', {
 
       const names = displayName !== null ? displayName.split(/(\s+)/) : []
 
-      const firstName = names[0] || ''
-      const lastName = names.slice(1).join(' ').trim()
-
       if (!displayName)
         throw new Error('displayName is null')
+
+      const firstName = names[0] || ''
+      const lastName = names.slice(1).join(' ').trim()
 
       const userDocData: UserDocData = {
         ...this.fields(),
