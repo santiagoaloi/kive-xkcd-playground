@@ -17,7 +17,9 @@ const { isLoggedIn } = toRefs(authStore)
       color="app-background" height="68"
     >
       <template v-if="!smAndDown">
-        <KiveLogo />
+        <RouterLink to="/">
+          <KiveLogo />
+        </RouterLink>
 
         <div class="text-lg">
           XKCD Comics
