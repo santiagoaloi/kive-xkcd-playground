@@ -228,6 +228,15 @@ export default defineConfig({
     ],
   },
 
+  optimizeDeps: {
+    // include: ['yup', 'vue', 'vue-router', '@vueuse/core', 'dayjs'],
+    exclude: [
+      'vuetify',
+      '@vueuse/router',
+      'axios',
+    ],
+  },
+
   server: {
     port: 3000,
 
