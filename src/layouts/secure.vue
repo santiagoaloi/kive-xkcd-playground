@@ -1,5 +1,5 @@
 <template>
-  <VMain class="h-full bg-red-50 pa-2">
+  <VMain>
     <RouterView />
   </VMain>
 </template>
