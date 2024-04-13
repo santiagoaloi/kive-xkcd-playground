@@ -11,19 +11,20 @@ declare global {
   const arrayUnion: typeof import('firebase/firestore')['arrayUnion']
   const auth: typeof import('@/firebase')['auth']
   const axios: typeof import('axios')['default']
-  const capitalize: typeof import('./utils/methods.js')['capitalize']
+  const capitalize: typeof import('./utils/methods')['capitalize']
   const collection: typeof import('firebase/firestore')['collection']
   const computed: typeof import('vue')['computed']
   const createApp: typeof import('vue')['createApp']
-  const createTemplatePromise: typeof import('@vueuse/core')['createTemplatePromise']
   const createUserWithEmailAndPassword: typeof import('firebase/auth')['createUserWithEmailAndPassword']
   const createVuetify: typeof import('vuetify')['createVuetify']
   const customRef: typeof import('vue')['customRef']
   const db: typeof import('@/firebase')['db']
   const defineAsyncComponent: typeof import('vue')['defineAsyncComponent']
   const defineComponent: typeof import('vue')['defineComponent']
+  const definePage: typeof import('unplugin-vue-router/runtime')['definePage']
   const deleteDoc: typeof import('firebase/firestore')['deleteDoc']
   const doc: typeof import('firebase/firestore')['doc']
+  const editRoute: typeof import('./utils/routing')['editRoute']
   const effectScope: typeof import('vue')['effectScope']
   const functions: typeof import('@/firebase')['functions']
   const getCurrentInstance: typeof import('vue')['getCurrentInstance']
@@ -44,6 +45,8 @@ declare global {
   const nextTick: typeof import('vue')['nextTick']
   const onActivated: typeof import('vue')['onActivated']
   const onBeforeMount: typeof import('vue')['onBeforeMount']
+  const onBeforeRouteLeave: typeof import('vue-router/auto')['onBeforeRouteLeave']
+  const onBeforeRouteUpdate: typeof import('vue-router/auto')['onBeforeRouteUpdate']
   const onBeforeUnmount: typeof import('vue')['onBeforeUnmount']
   const onBeforeUpdate: typeof import('vue')['onBeforeUpdate']
   const onDeactivated: typeof import('vue')['onDeactivated']
@@ -61,7 +64,6 @@ declare global {
   const reactive: typeof import('vue')['reactive']
   const readonly: typeof import('vue')['readonly']
   const ref: typeof import('vue')['ref']
-  const refAutoReset: typeof import('@vueuse/core')['refAutoReset']
   const resolveComponent: typeof import('vue')['resolveComponent']
   const setDoc: typeof import('firebase/firestore')['setDoc']
   const shallowReactive: typeof import('vue')['shallowReactive']
@@ -86,29 +88,20 @@ declare global {
   const useAppStore: typeof import('./stores/app')['useAppStore']
   const useAttrs: typeof import('vue')['useAttrs']
   const useAuthStore: typeof import('./stores/auth')['useAuthStore']
-  const useClipboard: typeof import('@vueuse/core')['useClipboard']
-  const useColorMode: typeof import('@vueuse/core')['useColorMode']
   const useComicsStore: typeof import('./stores/comics')['useComicsStore']
-  const useCounter: typeof import('@vueuse/core')['useCounter']
   const useCssModule: typeof import('vue')['useCssModule']
   const useCssVars: typeof import('vue')['useCssVars']
-  const useDebounceFn: typeof import('@vueuse/core')['useDebounceFn']
   const useDisplay: typeof import('vuetify')['useDisplay']
-  const useProfileStore: typeof import('./stores/user-profile')['useProfileStore']
   const useRoute: typeof import('vue-router/auto')['useRoute']
   const useRouteQuery: typeof import('@vueuse/router')['useRouteQuery']
   const useRouter: typeof import('vue-router/auto')['useRouter']
-  const useScroll: typeof import('@vueuse/core')['useScroll']
   const useSlots: typeof import('vue')['useSlots']
   const useTheme: typeof import('vuetify')['useTheme']
-  const useToggle: typeof import('@vueuse/core')['useToggle']
   const useUserProfileStore: typeof import('./stores/user-profile')['useUserProfileStore']
   const watch: typeof import('vue')['watch']
   const watchEffect: typeof import('vue')['watchEffect']
-  const watchImmediate: typeof import('@vueuse/core')['watchImmediate']
   const watchPostEffect: typeof import('vue')['watchPostEffect']
   const watchSyncEffect: typeof import('vue')['watchSyncEffect']
-  const whenever: typeof import('@vueuse/core')['whenever']
   const where: typeof import('firebase/firestore')['where']
 }
 // for type re-export
@@ -128,7 +121,7 @@ declare module 'vue' {
     readonly arrayUnion: UnwrapRef<typeof import('firebase/firestore')['arrayUnion']>
     readonly auth: UnwrapRef<typeof import('@/firebase')['auth']>
     readonly axios: UnwrapRef<typeof import('axios')['default']>
-    readonly capitalize: UnwrapRef<typeof import('./utils/methods.js')['capitalize']>
+    readonly capitalize: UnwrapRef<typeof import('./utils/methods')['capitalize']>
     readonly collection: UnwrapRef<typeof import('firebase/firestore')['collection']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
@@ -138,8 +131,10 @@ declare module 'vue' {
     readonly db: UnwrapRef<typeof import('@/firebase')['db']>
     readonly defineAsyncComponent: UnwrapRef<typeof import('vue')['defineAsyncComponent']>
     readonly defineComponent: UnwrapRef<typeof import('vue')['defineComponent']>
+    readonly definePage: UnwrapRef<typeof import('unplugin-vue-router/runtime')['definePage']>
     readonly deleteDoc: UnwrapRef<typeof import('firebase/firestore')['deleteDoc']>
     readonly doc: UnwrapRef<typeof import('firebase/firestore')['doc']>
+    readonly editRoute: UnwrapRef<typeof import('./utils/routing')['editRoute']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
     readonly functions: UnwrapRef<typeof import('@/firebase')['functions']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
@@ -160,6 +155,8 @@ declare module 'vue' {
     readonly nextTick: UnwrapRef<typeof import('vue')['nextTick']>
     readonly onActivated: UnwrapRef<typeof import('vue')['onActivated']>
     readonly onBeforeMount: UnwrapRef<typeof import('vue')['onBeforeMount']>
+    readonly onBeforeRouteLeave: UnwrapRef<typeof import('vue-router/auto')['onBeforeRouteLeave']>
+    readonly onBeforeRouteUpdate: UnwrapRef<typeof import('vue-router/auto')['onBeforeRouteUpdate']>
     readonly onBeforeUnmount: UnwrapRef<typeof import('vue')['onBeforeUnmount']>
     readonly onBeforeUpdate: UnwrapRef<typeof import('vue')['onBeforeUpdate']>
     readonly onDeactivated: UnwrapRef<typeof import('vue')['onDeactivated']>
@@ -227,7 +224,7 @@ declare module '@vue/runtime-core' {
     readonly arrayUnion: UnwrapRef<typeof import('firebase/firestore')['arrayUnion']>
     readonly auth: UnwrapRef<typeof import('@/firebase')['auth']>
     readonly axios: UnwrapRef<typeof import('axios')['default']>
-    readonly capitalize: UnwrapRef<typeof import('./utils/methods.js')['capitalize']>
+    readonly capitalize: UnwrapRef<typeof import('./utils/methods')['capitalize']>
     readonly collection: UnwrapRef<typeof import('firebase/firestore')['collection']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
@@ -237,8 +234,10 @@ declare module '@vue/runtime-core' {
     readonly db: UnwrapRef<typeof import('@/firebase')['db']>
     readonly defineAsyncComponent: UnwrapRef<typeof import('vue')['defineAsyncComponent']>
     readonly defineComponent: UnwrapRef<typeof import('vue')['defineComponent']>
+    readonly definePage: UnwrapRef<typeof import('unplugin-vue-router/runtime')['definePage']>
     readonly deleteDoc: UnwrapRef<typeof import('firebase/firestore')['deleteDoc']>
     readonly doc: UnwrapRef<typeof import('firebase/firestore')['doc']>
+    readonly editRoute: UnwrapRef<typeof import('./utils/routing')['editRoute']>
     readonly effectScope: UnwrapRef<typeof import('vue')['effectScope']>
     readonly functions: UnwrapRef<typeof import('@/firebase')['functions']>
     readonly getCurrentInstance: UnwrapRef<typeof import('vue')['getCurrentInstance']>
@@ -259,6 +258,8 @@ declare module '@vue/runtime-core' {
     readonly nextTick: UnwrapRef<typeof import('vue')['nextTick']>
     readonly onActivated: UnwrapRef<typeof import('vue')['onActivated']>
     readonly onBeforeMount: UnwrapRef<typeof import('vue')['onBeforeMount']>
+    readonly onBeforeRouteLeave: UnwrapRef<typeof import('vue-router/auto')['onBeforeRouteLeave']>
+    readonly onBeforeRouteUpdate: UnwrapRef<typeof import('vue-router/auto')['onBeforeRouteUpdate']>
     readonly onBeforeUnmount: UnwrapRef<typeof import('vue')['onBeforeUnmount']>
     readonly onBeforeUpdate: UnwrapRef<typeof import('vue')['onBeforeUpdate']>
     readonly onDeactivated: UnwrapRef<typeof import('vue')['onDeactivated']>
