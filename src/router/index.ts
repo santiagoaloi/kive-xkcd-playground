@@ -1,9 +1,14 @@
 import { createRouter, createWebHistory } from 'vue-router/auto'
 import { setupLayouts } from 'virtual:generated-layouts'
 
+// Create a new Vue Router instance
 const router = createRouter({
   history: createWebHistory(),
-  extendRoutes: setupLayouts,
+
+  extendRoutes: (routes) => {
+    // Dynamically generate layouts for the routes using virtual:generated-layouts
+    return setupLayouts(routes[0].children)
+  },
 })
 
 export default router
