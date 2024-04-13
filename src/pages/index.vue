@@ -29,8 +29,6 @@ onMounted(() => {
 
 <template>
   <div>
-    <div class="flex flex-col gap">
-      <HomeHero />
-    </div>
+    <HomeHero />
   </div>
 </template>
