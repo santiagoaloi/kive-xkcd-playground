@@ -32,7 +32,8 @@
   "references": [{ "path": "./tsconfig.node.json" }],
 
   "include": [
-    "./src/**/*.ts"
+    "./src/**/*.ts",
+    "./src/typed-router.d.ts"
   ],
 
   "exclude": ["dist", "node_modules"]

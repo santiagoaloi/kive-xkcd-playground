@@ -7,7 +7,6 @@ import Layouts from 'vite-plugin-vue-layouts'
 import Vue from '@vitejs/plugin-vue'
 import VueRouter from 'unplugin-vue-router/vite'
 import Vuetify, { transformAssetUrls } from 'vite-plugin-vuetify'
-import { VueRouterAutoImports } from 'unplugin-vue-router'
 
 // UnoCSS
 import UnoCSS from 'unocss/vite'
@@ -45,9 +44,6 @@ export default defineConfig({
       },
 
       exclude: ['**/__**/**', '**/__**/*'],
-
-      dts: 'src/typed-router.d.ts',
-
     }),
 
     Layouts(),
@@ -56,8 +52,6 @@ export default defineConfig({
       imports: [
 
         'vue',
-        VueRouterAutoImports,
-
         {
           'vue-router/auto': ['useRoute', 'useRouter'],
 
@@ -185,7 +179,6 @@ export default defineConfig({
     // include: ['yup', 'vue', 'vue-router', '@vueuse/core', 'dayjs'],
     exclude: [
       'vuetify',
-      '@vueuse/router',
       'axios',
     ],
   },
