@@ -8,7 +8,9 @@
         max-width="1450"
       >
         <!-- This handles layouts only -->
-        <RouterView />
+        <VFadeTransition>
+          <RouterView />
+        </VFadeTransition>
       </VSheet>
 
       <!-- Login Dialog can be called from anywhere -->
