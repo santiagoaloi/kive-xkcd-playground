@@ -7,7 +7,7 @@ const router = createRouter({
 
   extendRoutes: (routes) => {
     // Dynamically generate layouts for the routes using virtual:generated-layouts
-    return setupLayouts(routes)
+    return setupLayouts(routes[0].children)
   },
 })
 
