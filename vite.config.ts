@@ -179,6 +179,7 @@ export default defineConfig({
     // include: ['yup', 'vue', 'vue-router', '@vueuse/core', 'dayjs'],
     exclude: [
       'vuetify',
+      '@vueuse/router',
       'axios',
     ],
   },
