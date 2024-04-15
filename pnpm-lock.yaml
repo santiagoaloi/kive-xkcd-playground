@@ -17,12 +17,24 @@ dependencies:
   firebase:
     specifier: ^10.11.0
     version: 10.11.0
+  lodash-es:
+    specifier: ^4.17.21
+    version: 4.17.21
   vue:
     specifier: ^3.4.21
     version: 3.4.21(typescript@5.4.5)
+  vuefire:
+    specifier: ^3.1.23
+    version: 3.1.23(firebase@10.11.0)(vue@3.4.21)
   vuetify:
     specifier: ^3.5.8
     version: 3.5.15(typescript@5.4.5)(vite-plugin-vuetify@2.0.3)(vue@3.4.21)
+  vuetify-sonner:
+    specifier: ^0.3.2
+    version: 0.3.14(vue@3.4.21)(vuetify@3.5.15)
+  yup:
+    specifier: ^1.3.2
+    version: 1.4.0
 
 devDependencies:
   '@antfu/eslint-config':
@@ -3898,6 +3910,10 @@ packages:
       p-locate: 6.0.0
     dev: true
 
+  /lodash-es@4.17.21:
+    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
+    dev: false
+
   /lodash.camelcase@4.3.0:
     resolution: {integrity: sha512-TwuEnCnxbc3rAvhf/LbG7tJUDzhqXyFnv3dtzLOPgCG/hODL7WFnsbwktkD7yUV0RrreP/l1PALq/YSg6VvjlA==}
     dev: false
@@ -4476,6 +4492,10 @@ packages:
     hasBin: true
     dev: true
 
+  /property-expr@2.0.6:
+    resolution: {integrity: sha512-SVtmxhRE/CGkn3eZY1T6pC8Nln6Fr/lu1mKSgRud0eC73whjGfoAogbn78LkD8aFL0zz3bAFerKSnOl7NlErBA==}
+    dev: false
+
   /protobufjs@7.2.6:
     resolution: {integrity: sha512-dgJaEDDL6x8ASUZ1YqWciTRrdOuYNzoOf27oHNfdyvKqHr5i0FV7FSLU+aIeFjyFgVxrpTOtQUi0BLLBymZaBw==}
     engines: {node: '>=12.0.0'}
@@ -4923,6 +4943,10 @@ packages:
       any-promise: 1.3.0
     dev: true
 
+  /tiny-case@1.0.3:
+    resolution: {integrity: sha512-Eet/eeMhkO6TX8mnUteS9zgPbUMQa4I6Kkp5ORiBD5476/m+PIRiumP5tmh5ioJpH7k51Kehawy2UDfsnxxY8Q==}
+    dev: false
+
   /to-fast-properties@2.0.0:
     resolution: {integrity: sha512-/OaKK0xYrs3DmxRYqL/yDc+FxFUVYhDlXMhRmv3z915w2HF1tnN1omB354j8VUGO/hbRzyD6Y3sA7v7GS/ceog==}
     engines: {node: '>=4'}
@@ -4939,6 +4963,10 @@ packages:
     dependencies:
       eslint-visitor-keys: 3.4.3
     dev: true
+
+  /toposort@2.0.2:
+    resolution: {integrity: sha512-0a5EOkAUp8D4moMi2W8ZF8jcga7BgZd91O/yabJCFY8az+XSzeGyTKs0Aoo897iV1Nj6guFq8orWDS96z91oGg==}
+    dev: false
 
   /totalist@3.0.1:
     resolution: {integrity: sha512-sf4i37nQ2LBx4m3wB74y+ubopq6W/dIzXg0FDGjsYnZHVa1Da8FH853wlL2gtUhg+xJXjfk3kUZS3BRoQeoQBQ==}
@@ -4982,6 +5010,11 @@ packages:
     resolution: {integrity: sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==}
     engines: {node: '>=8'}
     dev: true
+
+  /type-fest@2.19.0:
+    resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
+    engines: {node: '>=12.20'}
+    dev: false
 
   /typescript@5.4.5:
     resolution: {integrity: sha512-vcI4UpRgg81oIRUFwR0WSIHKt11nJ7SAVlYNIu+QpqeyXP+gpQJy/Z4+F0aGxSE4MqwjyXvW/TzgkLAx2AGHwQ==}
@@ -5326,6 +5359,10 @@ packages:
       '@vue/devtools-api': 6.6.1
       vue: 3.4.21(typescript@5.4.5)
 
+  /vue-sonner@1.1.2:
+    resolution: {integrity: sha512-yg4f5s0a3oiiI7cNvO0Dajux1Y7s04lxww3vnQtnwQawJ3KqaKA9RIRMdI9wGTosRGIOwgYFniFRGl4+IuKPZw==}
+    dev: false
+
   /vue-template-compiler@2.7.16:
     resolution: {integrity: sha512-AYbUWAJHLGGQM7+cNTELw+KsOG9nl2CnSv467WobS5Cv9uk3wFcnr1Etsz2sEIHEZvw1U+o9mRlEO6QbZvUPGQ==}
     dependencies:
@@ -5359,6 +5396,38 @@ packages:
       '@vue/server-renderer': 3.4.21(vue@3.4.21)
       '@vue/shared': 3.4.21
       typescript: 5.4.5
+
+  /vuefire@3.1.23(firebase@10.11.0)(vue@3.4.21):
+    resolution: {integrity: sha512-bCz/3hw50+oilLBrUWQRRQccfhj0VeU8E+NZmFRnUe6D70yAMblRahLrQLmG6KBesJJeXexOEpRElP4pMq6zxA==}
+    engines: {node: '>=18'}
+    peerDependencies:
+      '@vue/composition-api': '*'
+      consola: ^3.2.3
+      firebase: ^9.0.0 || ^10.0.0
+      vue: ^2.7.0 || ^3.2.0
+    peerDependenciesMeta:
+      '@vue/composition-api':
+        optional: true
+      consola:
+        optional: true
+      firebase:
+        optional: true
+    dependencies:
+      firebase: 10.11.0
+      vue: 3.4.21(typescript@5.4.5)
+      vue-demi: 0.14.7(vue@3.4.21)
+    dev: false
+
+  /vuetify-sonner@0.3.14(vue@3.4.21)(vuetify@3.5.15):
+    resolution: {integrity: sha512-T4SmaRCw4LOlxzPNKwfJP042uhVYf5DpK3Xqu2QSOk3Yb8hBT6W6mhwqrdM/QbGzFFMN4gVMRxt5Uyb/OxcVYw==}
+    peerDependencies:
+      vue: ^3.3.0
+      vuetify: ^3.3.0
+    dependencies:
+      vue: 3.4.21(typescript@5.4.5)
+      vue-sonner: 1.1.2
+      vuetify: 3.5.15(typescript@5.4.5)(vite-plugin-vuetify@2.0.3)(vue@3.4.21)
+    dev: false
 
   /vuetify@3.5.15(typescript@5.4.5)(vite-plugin-vuetify@2.0.3)(vue@3.4.21):
     resolution: {integrity: sha512-4v+t3yjgZ5M4+YKRK2eOxymWU34/Sg8YP6Dqi4ZMYFjchiwijOns1WW4ywYlYXih0TSPVeAeQpCzztDu89nTyg==}
@@ -5506,3 +5575,12 @@ packages:
     resolution: {integrity: sha512-9bnSc/HEW2uRy67wc+T8UwauLuPJVn28jb+GtJY16iiKWyvmYJRXVT4UamsAEGQfPohgr2q4Tq0sQbQlxTfi1g==}
     engines: {node: '>=12.20'}
     dev: true
+
+  /yup@1.4.0:
+    resolution: {integrity: sha512-wPbgkJRCqIf+OHyiTBQoJiP5PFuAXaWiJK6AmYkzQAh5/c2K9hzSApBZG5wV9KoKSePF7sAxmNSvh/13YHkFDg==}
+    dependencies:
+      property-expr: 2.0.6
+      tiny-case: 1.0.3
+      toposort: 2.0.2
+      type-fest: 2.19.0
+    dev: false
