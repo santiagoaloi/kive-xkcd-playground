@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router/auto'
 import { setupLayouts } from 'virtual:generated-layouts'
 import type { RouteLocationNormalized } from 'vue-router'
 
+import { getUserState } from '@/firebase'
 // Create a new Vue Router instance
 const router = createRouter({
   history: createWebHistory(),
@@ -20,7 +21,7 @@ router.beforeEach(async (to: RouteLocationNormalized) => {
   if (to.meta.requiresAuth && !isAuthenticated) {
     // If the route requires authentication and the user is not authenticated,
     // redirect to the login page
-    return '/'
+    return { name: 'Login' }
   }
   // If no return statement is provided, navigation proceeds as normal
 })
