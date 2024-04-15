@@ -10,7 +10,7 @@ const appStore = useAppStore()
   <SquareImageCard
     :height="600"
     :img=" comicsStore.getComic.img"
-    :loading="comicsStore.loading && 'pink'"
+    :loading="comicsStore.loading && 'primary'"
   >
     <div class="p-md-5 h-full flex flex-col justify-center bg-greenx">
       <!-- <HomeHeroChip /> -->
@@ -32,7 +32,7 @@ const appStore = useAppStore()
 
         <div class="flex gap-3 ">
           <VBtn color="grey-lighten-3" icon variant="outlined">
-            <VIcon color="pink" icon="i-mdi:heart-outline" />
+            <VIcon color="primary" icon="i-mdi:heart-outline" />
           </vbtn>
 
           <VBtn color="grey-lighten-3" icon variant="outlined" @click="appStore.comicDetailsDialog = true">
@@ -58,7 +58,7 @@ const appStore = useAppStore()
     <div class="mt-5">
       Image URL (for hotlinking/embedding)
     </div>
-    <div class="mt-1 text-pink">
+    <div class="mt-1 text-primary">
       {{ comicsStore.getComic.img }}
     </div>
   </BaseDialog>
