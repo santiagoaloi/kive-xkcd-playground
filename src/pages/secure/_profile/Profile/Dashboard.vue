@@ -7,5 +7,5 @@ definePage({
 </script>
 
 <template>
-  Dashboard
+  <ProfileSettingsNames />
 </template>
