@@ -25,7 +25,7 @@ const dialog = defineModel()
         <VSpacer />
 
         <VBtn
-          color="pink"
+          color="primary"
           text="Close"
           @click="dialog = false"
         />

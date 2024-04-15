@@ -125,7 +125,7 @@ const initialColor = computed(() => {
     ]" :size="size" class="mask mask-hexagon prevent-select"
   >
     <div v-if="loading" class="flex h-full items-center justify-center">
-      <VProgressCircular color="pink" indeterminate size="25" />
+      <VProgressCircular color="primary" indeterminate size="25" />
     </div>
 
     <template v-else>
@@ -133,7 +133,7 @@ const initialColor = computed(() => {
         <VImg :src="src" cover @error="emit('error')">
           <template #placeholder>
             <div class="flex h-full items-center justify-center">
-              <VProgressCircular color="pink" indeterminate size="25" />
+              <VProgressCircular color="primary" indeterminate size="25" />
             </div>
           </template>
         </VImg>

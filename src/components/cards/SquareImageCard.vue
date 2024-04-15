@@ -49,7 +49,7 @@ const { mdAndUp } = useDisplay()
                 justify="center"
               >
                 <VProgressCircular
-                  color="pink"
+                  color="primary"
                   indeterminate
                 />
               </VRow>

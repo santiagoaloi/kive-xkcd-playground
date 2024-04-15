@@ -49,13 +49,13 @@ const { lgAndUp } = useDisplay()
 
         <VDivider class="my-3" />
 
-        <VBtn block color="pink" to="/profile" variant="text">
+        <VBtn block color="primary" to="/profile" variant="text">
           Dashboard
         </VBtn>
 
         <VDivider class="my-3" />
 
-        <VBtn block color="pink" variant="text" @click.stop="signOutCurrentUser()">
+        <VBtn block color="primary" variant="text" @click.stop="signOutCurrentUser()">
           Sign out
         </VBtn>
       </div>
