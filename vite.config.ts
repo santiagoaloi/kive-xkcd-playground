@@ -54,14 +54,21 @@ export default defineConfig({
         'vue',
         {
           'vue-router/auto': ['useRoute', 'useRouter'],
-
           'vuetify': ['useDisplay', 'createVuetify', 'useTheme'],
-
           '@vueuse/router': [
             'useRouteQuery',
           ],
-
           'axios': [['default', 'axios']],
+
+          'yup': [
+            // field validations
+            ['*', 'Yup'], // import { * as yup } from 'yup',
+          ],
+
+          'lodash-es': ['cloneDeep', 'isEqual', 'isArray', 'isObject', 'isEmpty', 'isFunction', 'omit'],
+
+          // Firebase
+          '@/firebase': ['db', 'auth'],
 
           // Firestore Database
           'firebase/firestore': [
@@ -79,19 +86,7 @@ export default defineConfig({
             'deleteDoc',
           ],
 
-          // Firestore Storage
-          'firebase/storage': [
-            'uploadBytesResumable',
-            'uploadTaskSnapshot',
-            'getDownloadURL',
-            ['ref', 'storageRef'],
-            'uploadBytes',
-          ],
-
-          // Functions
-          'firebase/functions': ['httpsCallable'],
-
-          // // Authentication
+          // Firebase Authentication
           'firebase/auth': [
             'GoogleAuthProvider',
             'signInWithPopup',
@@ -101,15 +96,20 @@ export default defineConfig({
             'createUserWithEmailAndPassword',
           ],
 
-          // Global firebase exports
-          '@/firebase': ['auth', 'db', 'functions', 'getUserState', 'storage'],
+          // Vuefire composables
+          'vuefire': ['useFirebaseAuth', 'useCurrentUser'],
+
         },
 
       ],
 
       dts: 'src/auto-imports.d.ts',
 
-      dirs: ['src/utils/**', 'src/composables/**', 'src/stores/**'],
+      /**
+       * Path for directories to be auto imported
+       */
+
+      dirs: ['src/utils/**', 'src/composables/**', 'src/stores/**', 'src/services/**/*'],
 
       eslintrc: {
         enabled: true,
@@ -176,11 +176,11 @@ export default defineConfig({
   },
 
   optimizeDeps: {
-    // include: ['yup', 'vue', 'vue-router', '@vueuse/core', 'dayjs'],
     exclude: [
       'vuetify',
       '@vueuse/router',
       'axios',
+      'lodash-es',
     ],
   },
 
