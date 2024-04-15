@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const sidebarLinks = [{ title: 'Dashboard', route: '/profile/dashboard', icon: 'i-mdi:home-outline' }]
+const sidebarLinks = [{ title: 'Profile', route: '/profile/dashboard', icon: 'i-mdi:account-outline' }]
 
 const sidebar = [
   {
