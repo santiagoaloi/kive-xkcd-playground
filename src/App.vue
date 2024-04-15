@@ -14,7 +14,8 @@
       </VSheet>
 
       <!-- Login Dialog can be called from anywhere -->
-      <LoginDialog />
     </AuthProvider>
+    <LoginDialog />
+    <GSnackbar />
   </VApp>
 </template>
