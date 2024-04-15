@@ -14,8 +14,13 @@
     "@vueuse/router": "^10.9.0",
     "axios": "^1.6.8",
     "firebase": "^10.11.0",
+    "lodash-es": "^4.17.21",
     "vue": "^3.4.21",
-    "vuetify": "^3.5.8"
+    "vuefire": "^3.1.23",
+    "vuetify": "^3.5.8",
+    "vuetify-sonner": "^0.3.2",
+    "yup": "^1.3.2"
+
   },
   "devDependencies": {
 
