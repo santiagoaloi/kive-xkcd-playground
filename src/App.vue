@@ -8,7 +8,7 @@
         max-width="1450"
       >
         <!-- This handles layouts only -->
-        <VFadeTransition>
+        <VFadeTransition hide-on-leave>
           <RouterView />
         </VFadeTransition>
       </VSheet>
