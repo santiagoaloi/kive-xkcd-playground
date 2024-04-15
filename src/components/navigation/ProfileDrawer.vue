@@ -1,20 +1,14 @@
 <script setup lang="ts">
 const sidebarLinks = [{ title: 'Dashboard', route: '/profile/dashboard', icon: 'i-mdi:home-outline' }]
 
-const sidebarEngagements = [
-  { title: 'Messages', route: '', icon: 'i-mdi:email-outline', disabled: true },
+const sidebar = [
   {
-    title: 'Applicants',
+    title: 'Saved Comics',
     route: '',
-    icon: 'i-mdi:bullseye-arrow',
+    icon: 'i-mdi:thought-bubble-outline',
     disabled: true,
   },
-  {
-    title: 'Job Posts',
-    route: '',
-    icon: 'i-mdi:bookmark-outline',
-    disabled: true,
-  },
+
 ]
 </script>
 
@@ -33,12 +27,12 @@ const sidebarEngagements = [
     <div class="my-5" />
 
     <VListSubheader class="text-overline">
-      Engagement
+      Comics
     </VListSubheader>
 
     <!-- * [ Engagement ] -->
     <VListItem
-      v-for="link in sidebarEngagements"
+      v-for="link in sidebar"
       :key="link.id" :disabled="link.disabled" :ripple="false" :title="link.title"
       :to="link.route" rounded="lg"
     >

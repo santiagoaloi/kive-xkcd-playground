@@ -1,24 +1,18 @@
+<script setup lang="ts">
+import { useProfileStore } from '@/stores/profile'
+
+const profileStore = useProfileStore()
+</script>
+
 <template>
   <div class="flex">
     <div class="py-5 border-b pl-3 bg-redx gap-y-2 flex flex-col bg-bluex w-100 text-black dark:text-[#ccc]">
       <div class="text-3xl ">
-        Search Jobs
+        {{ profileStore.profileFirstName }}'s Dashboard
       </div>
 
       <div>
-        Query and visualize your Vercel usage, traffic, and more with the fields below.
-      </div>
-    </div>
-
-    <div class="py-5 border-b pl-3 bg-redx gap-y-4 flex flex-col bg-redx w-100 items-end justify-center pr-7x">
-      <div class="flex gap-2">
-        <SettingsButton light size="large">
-          Applied Jobs
-        </SettingsButton>
-
-        <SettingsButton light size="large">
-          My saved jobs
-        </SettingsButton>
+        Check out your saved comics and change your account settings
       </div>
     </div>
   </div>
