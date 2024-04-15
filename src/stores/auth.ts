@@ -47,9 +47,9 @@ export const useAuthStore = defineStore('auth-store', {
       }
     },
 
-    // handleGoogleAuthenticationError(error: any): void {
-    //   console.log(error)
-    // },
+    handleGoogleAuthenticationError(error: any): void {
+      console.log(error)
+    },
 
     fields(): UserFields {
       return {
@@ -115,13 +115,18 @@ export const useAuthStore = defineStore('auth-store', {
         const user: User = userCredential.user
         const userExists = await this.checkIfUserExists(user.uid)
 
-        if (!userExists)
+        if (!userExists) {
+          if (!userExists) {
+            const profileCreated = await this.createUserProfile(user)
 
-          await this.createUserProfile(user)
+            if (!profileCreated)
+              return
+          }
+        }
 
-        // const profileCreated = await this.createUserProfile(user)
-        // if (!profileCreated)
-        //   return
+        if (userCredential)
+
+          this.router.push('/profile')
       }
       catch (error: any) {
         this.handleGoogleAuthenticationError(error)
