@@ -113,20 +113,13 @@ export const useAuthStore = defineStore('auth-store', {
       try {
         const userCredential = await this.signInWithGooglePopup()
         const user: User = userCredential.user
+
         const userExists = await this.checkIfUserExists(user.uid)
 
         if (!userExists) {
-          if (!userExists) {
-            const profileCreated = await this.createUserProfile(user)
-
-            if (!profileCreated)
-              return
-          }
+          if (!userExists)
+            await this.createUserProfile(user)
         }
-
-        if (userCredential)
-
-          this.router.push('/profile')
       }
       catch (error: any) {
         this.handleGoogleAuthenticationError(error)
