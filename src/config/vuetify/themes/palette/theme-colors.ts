@@ -3,7 +3,7 @@ import materialColors from 'vuetify/util/colors'
 export const colors = {
   'primary': {
     dark: '#7856ff',
-    light: '#7856ff',
+    light: materialColors.pink.base,
   },
   'secondary': {
     dark: '#625afa',
@@ -117,7 +117,7 @@ export const colors = {
 
   'field-outline-focus': {
     dark: '#7281ff',
-    light: '#625afa',
+    light: '#666666',
   },
 
   'text-field-background': {
