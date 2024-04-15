@@ -40,7 +40,7 @@ export default defineConfig({
 
       extendRoute(route) {
         if (route.path.includes('profile'))
-          route.addToMeta({ layout: 'secure' })
+          route.addToMeta({ layout: 'secure', requiresAuth: true })
       },
 
       exclude: ['**/__**/**', '**/__**/*'],
