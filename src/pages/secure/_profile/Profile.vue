@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useProfileStore } from '@/stores/profile'
+import { useUserProfileStore } from '@/stores/user-profile'
 
-const profileStore = useProfileStore()
+const profileStore = useUserProfileStore()
 </script>
 
 <template>
