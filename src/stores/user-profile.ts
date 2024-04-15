@@ -63,4 +63,11 @@ export const useUserProfileStore = defineStore('user-profile', {
       return profile?.photoURL
     },
   },
+
+  actions: {
+
+    async updateProfileNames(names) {
+      return await handleUpdateProfileNames(this.profileId, names)
+    },
+  },
 })
