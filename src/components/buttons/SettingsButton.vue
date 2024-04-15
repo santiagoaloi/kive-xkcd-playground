@@ -40,6 +40,11 @@ defineProps({
     default: false,
   },
 
+  submit: {
+    type: Boolean,
+    default: false,
+  },
+
 })
 </script>
 
