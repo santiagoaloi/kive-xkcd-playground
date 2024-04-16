@@ -38,6 +38,7 @@ declare global {
   const getDocumentsByIdService: typeof import('./services/firebase-service')['getDocumentsByIdService']
   const getIdToken: typeof import('firebase/auth')['getIdToken']
   const h: typeof import('vue')['h']
+  const handleSaveFavoriteComic: typeof import('./services/user-profile/actions/save-favorite-comic')['handleSaveFavoriteComic']
   const handleUpdateProfileNames: typeof import('./services/user-profile/actions/update-profile-names')['handleUpdateProfileNames']
   const inject: typeof import('vue')['inject']
   const isArray: typeof import('lodash-es')['isArray']
@@ -158,6 +159,7 @@ declare module 'vue' {
     readonly getDocs: UnwrapRef<typeof import('firebase/firestore')['getDocs']>
     readonly getIdToken: UnwrapRef<typeof import('firebase/auth')['getIdToken']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
+    readonly handleSaveFavoriteComic: UnwrapRef<typeof import('./services/user-profile/actions/save-favorite-comic')['handleSaveFavoriteComic']>
     readonly handleUpdateProfileNames: UnwrapRef<typeof import('./services/user-profile/actions/update-profile-names')['handleUpdateProfileNames']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
     readonly isArray: UnwrapRef<typeof import('lodash-es')['isArray']>
@@ -267,6 +269,7 @@ declare module '@vue/runtime-core' {
     readonly getDocs: UnwrapRef<typeof import('firebase/firestore')['getDocs']>
     readonly getIdToken: UnwrapRef<typeof import('firebase/auth')['getIdToken']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
+    readonly handleSaveFavoriteComic: UnwrapRef<typeof import('./services/user-profile/actions/save-favorite-comic')['handleSaveFavoriteComic']>
     readonly handleUpdateProfileNames: UnwrapRef<typeof import('./services/user-profile/actions/update-profile-names')['handleUpdateProfileNames']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
     readonly isArray: UnwrapRef<typeof import('lodash-es')['isArray']>

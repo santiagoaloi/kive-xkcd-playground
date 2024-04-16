@@ -134,6 +134,7 @@
     "omit": true,
     "createValidationRule": true,
     "Yup": true,
-    "snackbar": true
+    "snackbar": true,
+    "handleSaveFavoriteComic": true
   }
 }
