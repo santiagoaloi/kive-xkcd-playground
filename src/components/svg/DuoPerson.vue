@@ -35,63 +35,63 @@ const colors = computed(() => {
         stroke-width="1"
       />
       <path
-        :stroke="colors.svgStroke"
+        :stroke="colors.primary"
         d="M33.934 32.292 24 47l-9.934 -14.708"
         stroke-linecap="round"
         stroke-linejoin="round"
         stroke-width="1"
       />
       <path
-        :stroke="colors.svgStroke"
+        :stroke="colors.primary"
         d="m41 47 -4 -14L24 30l-13 3 -4 14h34Z"
         stroke-linecap="round"
         stroke-linejoin="round"
         stroke-width="1"
       />
       <path
-        :stroke="colors.svgStroke"
+        :stroke="colors.primary"
         d="M33 24.5 24 28l-9 -3.5v-12L24 9l9 3.5v12Z"
         stroke-linecap="round"
         stroke-linejoin="round"
         stroke-width="1"
       />
       <path
-        :stroke="colors.svgStroke"
+        :stroke="colors.primary"
         d="M21 20v-1"
         stroke-linecap="round"
         stroke-linejoin="round"
         stroke-width="1"
       />
       <path
-        :stroke="colors.svgStroke"
+        :stroke="colors.primary"
         d="M27 20v-1"
         stroke-linecap="round"
         stroke-linejoin="round"
         stroke-width="1"
       />
       <path
-        :stroke="colors.svgStroke"
+        :stroke="colors.primary"
         d="M28.906 31.132 24 39l-4.906 -7.868L24 30l4.906 1.132Z"
         stroke-linecap="round"
         stroke-linejoin="round"
         stroke-width="1"
       />
       <path
-        :stroke="colors.svgStroke"
+        :stroke="colors.primary"
         d="M17.25 11.626 24 15h9v-2"
         stroke-linecap="round"
         stroke-linejoin="round"
         stroke-width="1"
       />
       <path
-        :stroke="colors.svgStroke"
+        :stroke="colors.primary"
         d="M17.25 11.626 24 15h9V12.5L24 9 17.25 11.626Z"
         stroke-linecap="round"
         stroke-linejoin="round"
         stroke-width="1"
       />
       <path
-        :stroke="colors.svgStroke"
+        :stroke="colors.primary"
         d="m41 47 -4 -14L24 30l-13 3 -4 14h34Z"
         stroke-linecap="round"
         stroke-linejoin="round"
