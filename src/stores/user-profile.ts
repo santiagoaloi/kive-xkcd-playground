@@ -1,5 +1,7 @@
 import { defineStore } from 'pinia'
 
+import { useComicsStore } from '@/stores/comics'
+
 interface UserProfile {
   flags?: {
     isNewUser?: boolean
@@ -69,5 +71,11 @@ export const useUserProfileStore = defineStore('user-profile', {
     async updateProfileNames(names) {
       return await handleUpdateProfileNames(this.profileId, names)
     },
+
+    async saveFavoriteComic() {
+      const comicsStore = useComicsStore()
+      return await handleSaveFavoriteComic(this.profileId, comicsStore.getComic)
+    },
+
   },
 })
