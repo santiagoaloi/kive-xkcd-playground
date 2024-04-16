@@ -1,14 +1,12 @@
-const orgCollectionName = 'users'
+import type { Options } from '@/services/firebase-service'
 
-export async function saveUserProfileService(userId, payload) {
+const orgCollectionName: string = 'users'
+
+export async function saveUserProfileService(userId: string, payload: any, options?: Options): Promise<void> {
   try {
-    return await updateDocumentService(orgCollectionName, userId, payload, {
-      replace: true,
-      duplicates: false,
-    })
+    return await updateDocumentService(orgCollectionName, userId, payload, options)
   }
-
-  catch (error) {
+  catch (error: any) {
     throw new Error(`saveUserProfileService failed. ${error}`)
   }
 }
