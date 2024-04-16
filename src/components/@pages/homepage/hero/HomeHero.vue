@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { useAppStore } from '@/stores/app'
 import { useComicsStore } from '@/stores/comics'
+import { useUserProfileStore } from '@/stores/user-profile'
 
 const comicsStore = useComicsStore()
 const appStore = useAppStore()
+const profileStore = useUserProfileStore()
 </script>
 
 <template>
@@ -31,7 +33,7 @@ const appStore = useAppStore()
         <VSpacer />
 
         <div class="flex gap-3 ">
-          <VBtn color="grey-lighten-3" icon variant="outlined">
+          <VBtn color="grey-lighten-3" icon variant="outlined" @click="profileStore.saveFavoriteComic()">
             <VIcon color="primary" icon="i-mdi:heart-outline" />
           </vbtn>
 
