@@ -49,8 +49,12 @@ const { lgAndUp } = useDisplay()
 
         <VDivider class="my-3" />
 
-        <VBtn block color="primary" to="/profile" variant="text">
-          Dashboard
+        <VBtn block class="mb-2" color="primary" to="/profile" variant="text">
+          Profile
+        </VBtn>
+
+        <VBtn block color="primary" to="/profile/favorites" variant="text">
+          Favorites
         </VBtn>
 
         <VDivider class="my-3" />
