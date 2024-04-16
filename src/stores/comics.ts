@@ -1,6 +1,8 @@
 import { defineStore } from 'pinia'
 
-interface Comic {
+import { useUserProfileStore } from '@/stores/user-profile'
+
+export interface Comic {
   month: string
   num: number
   link: string
@@ -36,17 +38,16 @@ export const useComicsStore = defineStore('comics-store', {
   }),
 
   getters: {
+
+    isFavorited() {
+      const profileStore = useUserProfileStore()
+      return profileStore.profile?.favorites?.some(favorite => favorite.num === this.currentComic) ?? false
+    },
+
     getComic: state => state.comics.current,
     isOldestComic: state => state.currentComic === 1,
     isNewestComic: state => state.currentComic === state.newestComicId,
 
-    formattedDate(): string {
-      const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-      const day = this.getComic.day
-      const month = monthNames[Number(this.getComic.month) - 1] // Convert month to number before subtracting 1
-      const year = this.getComic.year
-      return `${month} ${day}, ${year}`
-    },
   },
 
   actions: {

@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 
+import type { Comic } from '@/stores/comics'
 import { useComicsStore } from '@/stores/comics'
 
 interface UserProfile {
@@ -13,6 +14,7 @@ interface UserProfile {
   }
   email?: string
   photoURL?: string
+  favorites?: Comic[]
 }
 
 export const useUserProfileStore = defineStore('user-profile', {
@@ -72,9 +74,9 @@ export const useUserProfileStore = defineStore('user-profile', {
       return await handleUpdateProfileNames(this.profileId, names)
     },
 
-    async saveFavoriteComic() {
+    async saveFavoriteComic(comic) {
       const comicsStore = useComicsStore()
-      return await handleSaveFavoriteComic(this.profileId, comicsStore.getComic)
+      return await handleSaveFavoriteComic(this.profileId, comic || comicsStore.getComic)
     },
 
   },
