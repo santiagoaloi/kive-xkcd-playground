@@ -1,6 +1,7 @@
 import { useDocument } from 'vuefire'
 import { collection } from 'firebase/firestore'
 
+import type { User } from 'firebase/auth'
 import { useAuthStore } from '@/stores/auth'
 import { useUserProfileStore } from '@/stores/user-profile'
 
@@ -16,7 +17,7 @@ export async function setUserAndProfile(firebaseUser) {
     user.value = firebaseUser
 
     if (firebaseUser)
-      profile.value = useDocument(doc(collection(db, 'users'), firebaseUser.uid))
+      profile.value = useDocument(doc(collection(db, 'users'), firebaseUser.uid)) as unknown as User
   }
 
   catch (error) {

@@ -8,7 +8,7 @@ interface FormFields {
 
 interface ResetRef {
   reset: () => void
-  hasNewValues: boolean
+  hasNewValues: ComputedRef<boolean>
   syncInitialValues: () => void
 }
 
@@ -22,7 +22,7 @@ interface UseFormFieldsReturn {
   formFields: FormFields
   formRef: FormRef
   reset: () => void
-  changed: boolean
+  changed: ComputedRef<boolean>
   sync: () => void
 }
 

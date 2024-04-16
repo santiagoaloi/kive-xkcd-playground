@@ -141,7 +141,6 @@ declare module 'vue' {
     readonly collection: UnwrapRef<typeof import('firebase/firestore')['collection']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
-    readonly createNewDocumentService: UnwrapRef<typeof import('./services/firebase-service')['createNewDocumentService']>
     readonly createUserWithEmailAndPassword: UnwrapRef<typeof import('firebase/auth')['createUserWithEmailAndPassword']>
     readonly createValidationRule: UnwrapRef<typeof import('./utils/validations')['createValidationRule']>
     readonly createVuetify: UnwrapRef<typeof import('vuetify')['createVuetify']>
@@ -157,9 +156,6 @@ declare module 'vue' {
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly getDoc: UnwrapRef<typeof import('firebase/firestore')['getDoc']>
     readonly getDocs: UnwrapRef<typeof import('firebase/firestore')['getDocs']>
-    readonly getDocumentByIdService: UnwrapRef<typeof import('./services/firebase-service')['getDocumentByIdService']>
-    readonly getDocumentsByFieldValueService: UnwrapRef<typeof import('./services/firebase-service')['getDocumentsByFieldValueService']>
-    readonly getDocumentsByIdService: UnwrapRef<typeof import('./services/firebase-service')['getDocumentsByIdService']>
     readonly getIdToken: UnwrapRef<typeof import('firebase/auth')['getIdToken']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly handleUpdateProfileNames: UnwrapRef<typeof import('./services/user-profile/actions/update-profile-names')['handleUpdateProfileNames']>
@@ -191,12 +187,10 @@ declare module 'vue' {
     readonly onUnmounted: UnwrapRef<typeof import('vue')['onUnmounted']>
     readonly onUpdated: UnwrapRef<typeof import('vue')['onUpdated']>
     readonly provide: UnwrapRef<typeof import('vue')['provide']>
-    readonly pushToArrayFieldService: UnwrapRef<typeof import('./services/firebase-service')['pushToArrayFieldService']>
     readonly query: UnwrapRef<typeof import('firebase/firestore')['query']>
     readonly reactive: UnwrapRef<typeof import('vue')['reactive']>
     readonly readonly: UnwrapRef<typeof import('vue')['readonly']>
     readonly ref: UnwrapRef<typeof import('vue')['ref']>
-    readonly removeItemFromArrayService: UnwrapRef<typeof import('./services/firebase-service')['removeItemFromArrayService']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly saveUserProfileService: UnwrapRef<typeof import('./services/user-profile/user-profile-service')['saveUserProfileService']>
     readonly setDoc: UnwrapRef<typeof import('firebase/firestore')['setDoc']>
@@ -216,7 +210,6 @@ declare module 'vue' {
     readonly unref: UnwrapRef<typeof import('vue')['unref']>
     readonly updateDoc: UnwrapRef<typeof import('firebase/firestore')['updateDoc']>
     readonly updateDocumentService: UnwrapRef<typeof import('./services/firebase-service')['updateDocumentService']>
-    readonly uploadFileService: UnwrapRef<typeof import('./services/firebase-service')['uploadFileService']>
     readonly useAppStore: UnwrapRef<typeof import('./stores/app')['useAppStore']>
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
     readonly useAuthStore: UnwrapRef<typeof import('./stores/auth')['useAuthStore']>
@@ -257,7 +250,6 @@ declare module '@vue/runtime-core' {
     readonly collection: UnwrapRef<typeof import('firebase/firestore')['collection']>
     readonly computed: UnwrapRef<typeof import('vue')['computed']>
     readonly createApp: UnwrapRef<typeof import('vue')['createApp']>
-    readonly createNewDocumentService: UnwrapRef<typeof import('./services/firebase-service')['createNewDocumentService']>
     readonly createUserWithEmailAndPassword: UnwrapRef<typeof import('firebase/auth')['createUserWithEmailAndPassword']>
     readonly createValidationRule: UnwrapRef<typeof import('./utils/validations')['createValidationRule']>
     readonly createVuetify: UnwrapRef<typeof import('vuetify')['createVuetify']>
@@ -273,9 +265,6 @@ declare module '@vue/runtime-core' {
     readonly getCurrentScope: UnwrapRef<typeof import('vue')['getCurrentScope']>
     readonly getDoc: UnwrapRef<typeof import('firebase/firestore')['getDoc']>
     readonly getDocs: UnwrapRef<typeof import('firebase/firestore')['getDocs']>
-    readonly getDocumentByIdService: UnwrapRef<typeof import('./services/firebase-service')['getDocumentByIdService']>
-    readonly getDocumentsByFieldValueService: UnwrapRef<typeof import('./services/firebase-service')['getDocumentsByFieldValueService']>
-    readonly getDocumentsByIdService: UnwrapRef<typeof import('./services/firebase-service')['getDocumentsByIdService']>
     readonly getIdToken: UnwrapRef<typeof import('firebase/auth')['getIdToken']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
     readonly handleUpdateProfileNames: UnwrapRef<typeof import('./services/user-profile/actions/update-profile-names')['handleUpdateProfileNames']>
@@ -307,12 +296,10 @@ declare module '@vue/runtime-core' {
     readonly onUnmounted: UnwrapRef<typeof import('vue')['onUnmounted']>
     readonly onUpdated: UnwrapRef<typeof import('vue')['onUpdated']>
     readonly provide: UnwrapRef<typeof import('vue')['provide']>
-    readonly pushToArrayFieldService: UnwrapRef<typeof import('./services/firebase-service')['pushToArrayFieldService']>
     readonly query: UnwrapRef<typeof import('firebase/firestore')['query']>
     readonly reactive: UnwrapRef<typeof import('vue')['reactive']>
     readonly readonly: UnwrapRef<typeof import('vue')['readonly']>
     readonly ref: UnwrapRef<typeof import('vue')['ref']>
-    readonly removeItemFromArrayService: UnwrapRef<typeof import('./services/firebase-service')['removeItemFromArrayService']>
     readonly resolveComponent: UnwrapRef<typeof import('vue')['resolveComponent']>
     readonly saveUserProfileService: UnwrapRef<typeof import('./services/user-profile/user-profile-service')['saveUserProfileService']>
     readonly setDoc: UnwrapRef<typeof import('firebase/firestore')['setDoc']>
@@ -332,7 +319,6 @@ declare module '@vue/runtime-core' {
     readonly unref: UnwrapRef<typeof import('vue')['unref']>
     readonly updateDoc: UnwrapRef<typeof import('firebase/firestore')['updateDoc']>
     readonly updateDocumentService: UnwrapRef<typeof import('./services/firebase-service')['updateDocumentService']>
-    readonly uploadFileService: UnwrapRef<typeof import('./services/firebase-service')['uploadFileService']>
     readonly useAppStore: UnwrapRef<typeof import('./stores/app')['useAppStore']>
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
     readonly useAuthStore: UnwrapRef<typeof import('./stores/auth')['useAuthStore']>

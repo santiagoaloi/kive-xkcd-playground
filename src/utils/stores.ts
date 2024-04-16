@@ -1,7 +1,26 @@
-export function validateAndSave() {
-  const loading = ref(false)
+import type { Ref } from 'vue'
+import { ref } from 'vue'
 
-  async function submitForm(e, saveFunction, payload, sync) {
+interface SnackbarFunction {
+  (message: string, type?: string): void
+}
+
+interface SaveFunction {
+  (payload: any): Promise<void>
+}
+
+interface SyncFunction {
+  (): void
+}
+
+interface ValidationResult {
+  valid: boolean
+}
+
+export function validateAndSave(): { submitForm: (e: Promise<ValidationResult>, saveFunction: SaveFunction, payload: any, sync: SyncFunction) => Promise<void>, loading: Ref<boolean> } {
+  const loading: Ref<boolean> = ref(false)
+
+  async function submitForm(e: Promise<ValidationResult>, saveFunction: SaveFunction, payload: any, sync: SyncFunction): Promise<void> {
     loading.value = true
 
     try {
