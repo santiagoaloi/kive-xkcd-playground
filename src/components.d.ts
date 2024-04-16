@@ -9,6 +9,8 @@ declare module 'vue' {
   export interface GlobalComponents {
     AuthProvider: typeof import('./components/providers/AuthProvider.vue')['default']
     BaseDialog: typeof import('./components/dialogs/BaseDialog.vue')['default']
+    ComicCard: typeof import('./components/cards/ComicCard.vue')['default']
+    ComicInfoDialog: typeof import('./components/dialogs/ComicInfoDialog.vue')['default']
     ComicsActionButtons: typeof import('./components/buttons/ComicsActionButtons.vue')['default']
     Duo404: typeof import('./components/svg/Duo404.vue')['default']
     DuoImage: typeof import('./components/svg/DuoImage.vue')['default']
@@ -21,7 +23,7 @@ declare module 'vue' {
     HomeHero: typeof import('./components/@pages/homepage/hero/HomeHero.vue')['default']
     HomeHeroChip: typeof import('./components/@pages/homepage/HomeHeroChip.vue')['default']
     KiveLogo: typeof import('./components/svg/kive/KiveLogo.vue')['default']
-    LoginDialog: typeof import('./components/authentication/LoginDialog.vue')['default']
+    LoginDialog: typeof import('./components/dialogs/LoginDialog.vue')['default']
     ProfileDrawer: typeof import('./components/navigation/ProfileDrawer.vue')['default']
     ProfileSettingsNames: typeof import('./components/@pages/profile/ProfileSettingsNames.vue')['default']
     RoundedSquareAvatar: typeof import('./components/avatars/RoundedSquareAvatar.vue')['default']
