@@ -20,12 +20,16 @@
 
 - Browse all the available comics wth navigation buttons
 - Drill-down comic info for details about image download and metadata
+- Save your favorite comics to your account
 - Comic IDs synced up with url params
 - Authentication powered by google firebase
 - Quick authentication with google authentication provider
 - Scalable architecture based on component reusability
 - State management with Pinia
 - Proxy server configured in vite during dev and in vercel in prod
+
+   <img width="1024" src="public/fav.png" alt="Kive">
+   <img width="1024" src="public/profile.png" alt="Kive">
 
 ## 🚀 CLI commands
 
