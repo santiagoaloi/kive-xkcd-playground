@@ -3,17 +3,16 @@ const sidebarLinks = [{ title: 'Profile', route: '/profile/dashboard', icon: 'i-
 
 const sidebar = [
   {
-    title: 'Saved Comics',
-    route: '',
+    title: 'Favorite Comics',
+    route: '/profile/favorites',
     icon: 'i-mdi:thought-bubble-outline',
-    disabled: true,
   },
 
 ]
 </script>
 
 <template>
-  <VList class="pa-y mt-2 px-0x bg-transparent" density="compact">
+  <VList class=" mt-2 bg-transparent" density="compact">
     <!-- * [ Home ] -->
     <VListItem
       v-for="link in sidebarLinks" :key="link.id" :ripple="false" :title="link.title" :to="link.route" exact link

@@ -2,10 +2,12 @@
 import { useAppStore } from '@/stores/app'
 import { useComicsStore } from '@/stores/comics'
 import { useUserProfileStore } from '@/stores/user-profile'
+import { useAuthStore } from '@/stores/auth'
 
 const comicsStore = useComicsStore()
 const appStore = useAppStore()
 const profileStore = useUserProfileStore()
+const authStore = useAuthStore()
 </script>
 
 <template>
@@ -33,8 +35,8 @@ const profileStore = useUserProfileStore()
         <VSpacer />
 
         <div class="flex gap-3 ">
-          <VBtn color="grey-lighten-3" icon variant="outlined" @click="profileStore.saveFavoriteComic()">
-            <VIcon color="primary" icon="i-mdi:heart-outline" />
+          <VBtn color="grey-lighten-3" icon variant="outlined" @click="authStore.isLoggedIn ? profileStore.saveFavoriteComic() : appStore.loginDialog = true ">
+            <VIcon :color="comicsStore.isFavorited ? 'primary' : 'black'" :icon="comicsStore.isFavorited ? 'i-mdi:heart' : 'i-mdi:heart-outline'" />
           </vbtn>
 
           <VBtn color="grey-lighten-3" icon variant="outlined" @click="appStore.comicDetailsDialog = true">
@@ -44,24 +46,5 @@ const profileStore = useUserProfileStore()
       </VToolbar>
     </template>
   </SquareImageCard>
-
-  <BaseDialog v-model="appStore.comicDetailsDialog" title="Short Details for nerds">
-    <div>
-      Posted {{ comicsStore.formattedDate }}
-    </div>
-
-    <div class="mt-5">
-      Comic Id
-    </div>
-    <div class="text-h5 mt-1">
-      {{ comicsStore.getComic.num }}
-    </div>
-
-    <div class="mt-5">
-      Image URL (for hotlinking/embedding)
-    </div>
-    <div class="mt-1 text-primary">
-      {{ comicsStore.getComic.img }}
-    </div>
-  </BaseDialog>
+  <ComicInfoDialog :comic="comicsStore.getComic " />
 </template>
