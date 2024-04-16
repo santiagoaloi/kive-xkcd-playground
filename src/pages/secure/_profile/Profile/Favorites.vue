@@ -1,0 +1,29 @@
+<script setup>
+import { useUserProfileStore } from '@/stores/user-profile'
+
+defineProps({
+  comic: {
+    type: Object,
+    default: () => {},
+  },
+
+})
+const profileStore = useUserProfileStore()
+</script>
+
+<template>
+  <VContainer v-if="!profileStore.profile.favorites.length" class="h-100">
+    <div class="align-center justify-center flex flex-col mt-15">
+      <div>
+        <DuoNoresults size="190" />
+      </div>
+
+      <div class="my-10">
+        You haven't favorited any comics yet.
+      </div>
+    </div>
+  </VContainer>
+  <div class="grid gap-8 sm:grid-cols-1 xl:grid-cols-2 ">
+    <ComicCard v-for="comicItem in profileStore.profile.favorites" :key="comicItem.num" v-bind="{ ...comicItem }" @unfavorite="profileStore.saveFavoriteComic(comicItem)" />
+  </div>
+</template>
