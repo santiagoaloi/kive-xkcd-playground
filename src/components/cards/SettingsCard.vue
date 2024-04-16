@@ -145,11 +145,11 @@ const { mdAndUp } = useDisplay()
       class="border-t ronded-0 items-end align-center justify-center inline-flex bg-surface-footer"
       min-height="60"
     >
-      <FormActions class="flex w-100">
+      <FormActions class="flex w-100 gap-3 mx-4">
         <template v-if="kbd">
-          <TrucateText>
-            <kbd class="kbd kbd-sm">Esc</kbd> to reset
-          </TrucateText>
+          <small class="flex align-center">
+            Esc to reset
+          </small>
         </template>
         <slot name="footer" />
       </FormActions>
