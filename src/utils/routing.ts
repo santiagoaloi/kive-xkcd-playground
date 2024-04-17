@@ -23,7 +23,7 @@ export function editRoute(absolutePath: string, segmentName: string): string {
    * @returns An array with underscore segments removed.
    */
   function removeUnderscoreSegments(pathSegments: string[]): string[] {
-    // Example of how pathSegments array looks: ['_jobposts', 'JobPosts', '_published', 'Published.vue']
+    // Example of how pathSegments array look: ['_jobposts', 'JobPosts', '_published', 'Published.vue']
 
     const filteredSegments: string[] = []
 
@@ -55,11 +55,6 @@ export function editRoute(absolutePath: string, segmentName: string): string {
 
     // Join the remaining parts to get the simplified path
     absolutePath = `/${remainingParts.join('/')}`
-
-    // Ensure that the resulting file name ends with ".vue"
-    // if (!absolutePath.endsWith('.vue')) {
-    //   absolutePath += '.vue'
-    // }
   }
 
   // Convert the path to lowercase
