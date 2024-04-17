@@ -80,6 +80,7 @@ export const useAuthStore = defineStore('auth-store', {
         email: email || '',
         names: { firstName, lastName },
         photoURL: photoURL || '',
+        favorites: [],
       }
 
       userDocData.flags.isVerified = true
