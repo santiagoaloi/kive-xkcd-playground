@@ -17,8 +17,6 @@ const authStore = useAuthStore()
     :loading="comicsStore.loading && 'primary'"
   >
     <div class="p-md-5 h-full flex flex-col justify-center bg-greenx">
-      <!-- <HomeHeroChip /> -->
-
       <p class="text-5xl lg:text-6xl sm:w-8/12 lg:w-auto  font-bold mb-5">
         {{ comicsStore.getComic.title }}
       </p>
@@ -35,10 +33,12 @@ const authStore = useAuthStore()
         <VSpacer />
 
         <div class="flex gap-3 ">
+          <!-- If not authenticated, show the login dialog instead of saving as favorite -->
           <VBtn color="grey-lighten-3" icon variant="outlined" @click="authStore.isLoggedIn ? profileStore.saveFavoriteComic() : appStore.loginDialog = true ">
             <VIcon :color="comicsStore.isFavorited ? 'primary' : 'black'" :icon="comicsStore.isFavorited ? 'i-mdi:heart' : 'i-mdi:heart-outline'" />
           </vbtn>
 
+          <!-- Trigger Details for nerds dialog -->
           <VBtn color="grey-lighten-3" icon variant="outlined" @click="appStore.comicDetailsDialog = true">
             <VIcon color="black" icon="i-mdi:info-outline" />
           </vbtn>
@@ -46,5 +46,6 @@ const authStore = useAuthStore()
       </VToolbar>
     </template>
   </SquareImageCard>
+  <!-- TODO: this could be a global dialog that could be accessed from anywhere -->
   <ComicInfoDialog :comic="comicsStore.getComic " />
 </template>

@@ -7,14 +7,6 @@ import { firebaseOptions } from './options.js'
 export const firebaseApp = initializeApp(firebaseOptions())
 const db = getFirestore(firebaseApp) // Firestore (Database)
 
-const googleAuthProvider = new GoogleAuthProvider()
-
-//  / used for the firestore refs
-// const db = getFirestore(firebaseApp);
-
-// // here we can export reusable database references
-// export const todosRef = collection(db, "todos");
-
 // https://github.com/firebase/firebase-js-sdk/issues/1420#issuecomment-1601277470
 const auth = initializeAuth(firebaseApp, {
   persistence: [browserLocalPersistence],
@@ -28,4 +20,4 @@ function getUserState() {
   })
 }
 
-export { db, auth, googleAuthProvider, getUserState }
+export { db, auth, getUserState }

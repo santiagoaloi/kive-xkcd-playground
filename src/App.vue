@@ -12,10 +12,10 @@
           <RouterView />
         </VFadeTransition>
       </VSheet>
-
-      <!-- Login Dialog can be called from anywhere -->
     </AuthProvider>
+    <!-- Login Dialog can be called from anywhere -->
     <LoginDialog />
+    <!-- Notification snackbar can be called from anywhere -->
     <GSnackbar />
   </VApp>
 </template>
