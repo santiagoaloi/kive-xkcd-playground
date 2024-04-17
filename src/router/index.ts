@@ -21,7 +21,7 @@ router.beforeEach(async (to: RouteLocationNormalized) => {
   if (to.meta.requiresAuth && !isAuthenticated) {
     // If the route requires authentication and the user is not authenticated,
     // redirect to the login page
-    return { name: 'Login' }
+    return '/'
   }
   // If no return statement is provided, navigation proceeds as normal
 })
