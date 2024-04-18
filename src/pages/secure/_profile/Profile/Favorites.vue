@@ -1,14 +1,10 @@
 <script setup>
 import { useUserProfileStore } from '@/stores/user-profile'
 
-defineProps({
-  comic: {
-    type: Object,
-    default: () => {},
-  },
+import { useComicsStore } from '@/stores/comics'
 
-})
 const profileStore = useUserProfileStore()
+const comicsStore = useComicsStore()
 </script>
 
 <template>
@@ -20,10 +16,15 @@ const profileStore = useUserProfileStore()
 
       <div class="my-10">
         You haven't favorited any comics yet.
-      </div>
+      </div>c
     </div>
   </VContainer>
   <div class="grid gap-8 sm:grid-cols-1 xl:grid-cols-2 ">
-    <ComicCard v-for="comicItem in profileStore.profile.favorites" :key="comicItem.num" v-bind="{ ...comicItem }" @unfavorite="profileStore.saveFavoriteComic(comicItem)" />
+    <ComicCard
+      v-for="comicItem in profileStore.profile.favorites"
+      :key="comicItem.num" v-bind="{ ...comicItem }"
+      @click-link="(id) => comicsStore.lookupFavoritedComic(comicItem)"
+      @unfavorite="profileStore.saveFavoriteComic(comicItem)"
+    />
   </div>
 </template>
