@@ -21,7 +21,7 @@ function formattedDate(comic): string {
 </script>
 
 <template>
-  <BaseDialog v-model="appStore.comicDetailsDialog" title="Welcome!">
+  <BaseDialog v-model="appStore.comicDetailsDialog" title="Comic details">
     <div>
       Posted {{ formattedDate(comic) }}
     </div>
