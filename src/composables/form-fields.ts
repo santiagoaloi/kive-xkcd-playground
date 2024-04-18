@@ -47,7 +47,8 @@ interface FormRef {
  * A function that sets up form fields.
  * @param store - The store to use for the form fields.
  * @param propertyPath - The path to the property in the store to use for the form fields.
- * @returns An object with the form fields, a form reference, a reset function, a computed reference indicating whether the form has changed, and a sync function.
+ * @returns An object with the form fields, a form reference, a reset function,
+ * a computed reference indicating whether the form has changed, and a sync function.
  */
 export function useFormFields(store: Store, propertyPath: string): UseFormFieldsReturn {
   const propertyPathParts = propertyPath.split('.')
