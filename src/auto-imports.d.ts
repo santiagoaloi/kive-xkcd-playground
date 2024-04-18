@@ -25,6 +25,7 @@ declare global {
   const db: typeof import('@/firebase')['db']
   const defineAsyncComponent: typeof import('vue')['defineAsyncComponent']
   const defineComponent: typeof import('vue')['defineComponent']
+  const delay: typeof import('./utils/methods')['delay']
   const deleteDoc: typeof import('firebase/firestore')['deleteDoc']
   const doc: typeof import('firebase/firestore')['doc']
   const editRoute: typeof import('./utils/routing')['editRoute']

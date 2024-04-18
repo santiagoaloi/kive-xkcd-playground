@@ -135,6 +135,7 @@
     "createValidationRule": true,
     "Yup": true,
     "snackbar": true,
-    "handleSaveFavoriteComic": true
+    "handleSaveFavoriteComic": true,
+    "delay": true
   }
 }
