@@ -1,10 +1,11 @@
 import axios from 'axios'
 
-/*
- * Due to the CORS policy, I'm unable to make direct requests from the client to the xkcd.com server.
- * I'm implementing a server-side proxy on Vercel to make requests to  xkcd.com.
+/**
+ * Server-side proxy to make requests to xkcd.com due to the CORS policy.
+ * @param req - The request object, containing a query parameter with the ID of the comic to fetch.
+ * @param res - The response object, used to send the data back to the client.
+ * @returns A promise that resolves when the data has been sent back to the client.
  */
-
 export default async (req, res) => {
   const { id } = req.query
 
