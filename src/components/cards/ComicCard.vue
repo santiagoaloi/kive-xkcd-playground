@@ -1,5 +1,5 @@
-<script setup>
-const props = defineProps({
+<script setup lang="ts">
+defineProps({
 
   img: {
     type: String,
@@ -22,7 +22,7 @@ const props = defineProps({
 
 })
 
-const emit = defineEmits('unfavorite', 'click-info')
+const emit = defineEmits('unfavorite', 'clickLink')
 </script>
 
 <template>
@@ -45,12 +45,16 @@ const emit = defineEmits('unfavorite', 'click-info')
 
       <div class="flex h-full flex-col px-5 px-md-8 pb-10">
         <div class="my-2 h-full gap-5 flex flex-col">
-          <div class="flex mt-5 align-center ">
+          <div class="flex mt-5 align-center gap-3">
             <VChip class="my-5x">
               {{ num }}
             </VChip>
 
             <VSpacer />
+
+            <VBtn color="grey-lighten-3" icon variant="outlined" @click.stop="emit('clickLink')">
+              <VIcon color="black" icon="i-mdi:open-in-new" />
+            </vbtn>
 
             <VBtn color="grey-lighten-3" icon variant="outlined" @click.stop="emit('unfavorite')">
               <VIcon color="primary" icon="i-mdi:heart" />
