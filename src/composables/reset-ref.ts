@@ -5,7 +5,8 @@ import type { Ref, UnwrapRef } from 'vue'
  *
  * @param reference - The reactive reference to be reset.
  * @param options - Optional settings for the reset behavior.
- * @returns An object containing a reset function, a computed reference indicating whether new values have been assigned, and a function to synchronize the initial values.
+ * @returns An object containing a reset function, a computed reference indicating whether new values have been assigned,
+ * and a function to synchronize the initial values.
  *
  * @throws Will throw an error if the provided reference is not a Ref or a Reactive variable.
  */
