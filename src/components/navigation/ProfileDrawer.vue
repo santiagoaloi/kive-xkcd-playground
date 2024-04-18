@@ -15,7 +15,7 @@ const sidebar = [
   <VList class=" mt-2 bg-transparent" density="compact">
     <!-- * [ Home ] -->
     <VListItem
-      v-for="link in sidebarLinks" :key="link.id" :ripple="false" :title="link.title" :to="link.route" exact link
+      v-for="link in sidebarLinks" :key="link.route" :ripple="false" :title="link.title" :to="link.route" exact link
       rounded="lg"
     >
       <template #prepend="{ isActive }">
@@ -32,7 +32,7 @@ const sidebar = [
     <!-- * [ Engagement ] -->
     <VListItem
       v-for="link in sidebar"
-      :key="link.id" :disabled="link.disabled" :ripple="false" :title="link.title"
+      :key="link.route" :ripple="false" :title="link.title"
       :to="link.route" rounded="lg"
     >
       <template #prepend="{ isActive }">
