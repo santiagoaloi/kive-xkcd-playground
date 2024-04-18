@@ -53,6 +53,17 @@ export const useComicsStore = defineStore('comics-store', {
   actions: {
 
     /*
+ * Lookup a favorited comic.
+ * Set the correct id in the url and route the hompage
+ */
+
+    lookupFavoritedComic(comic: Comic) {
+      this.currentComic = comic.num
+      this.comics.current = comic
+      this.router.push('/')
+    },
+
+    /*
  * Get me the most recent comic id.
  * we can use it to fallback to this comic if the user
  * routes to a comic that doesn't exist and also to prevent the user
@@ -83,7 +94,6 @@ export const useComicsStore = defineStore('comics-store', {
         return
 
       const router = useRouter()
-
       const url = this.constructUrl(id)
 
       this.loading = true
@@ -93,6 +103,7 @@ export const useComicsStore = defineStore('comics-store', {
         this.comics.current = comicData
         this.currentComic = comicData.num
       }
+
       catch (error) {
         router.replace('/NotFound')
         console.error('Error fetching comic:', error)
