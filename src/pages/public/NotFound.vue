@@ -1,9 +1,7 @@
 <template>
   <VContainer class="flex align-center justify-center  h-100">
     <div class="align-center justify-center flex flex-col">
-      <div>
-        <DuoNoresults size="190" />
-      </div>
+      <DuoNoresults size="190" />
 
       <div class="my-10">
         Ths comic is not found
@@ -15,9 +13,7 @@
         light
         to="/"
       >
-        <div>
-          Keep exploring comics!
-        </div>
+        Keep exploring comics!
       </SettingsButton>
     </div>
   </VContainer>
