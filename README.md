@@ -14,7 +14,7 @@
   </a>
 </p>
 
-# <span style="color: #fff;"> XKCD APIs Playground with Vue3 / Vite / Vercel </span>
+# <span style="color: #fff;"> XKCD APIs Playground Vue3 / Vite / Vercel / Firebase </span>
 
 ## Features ✨
 
