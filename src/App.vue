@@ -2,7 +2,6 @@
   <VApp class="mx-3">
     <AuthProvider>
       <GAppBar />
-
       <VSheet
         class="mx-auto w-100 bg-transparent h-100"
         max-width="1450"

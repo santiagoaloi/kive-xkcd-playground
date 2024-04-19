@@ -30,7 +30,10 @@ interface ValidationResult {
 /**
  * Validates and saves data.
  *
- * @returns An object containing a submitForm function and a loading ref. The submitForm function takes a validation result promise, a save function, a payload, and a sync function, and returns a promise that resolves when the submit operation is complete. The loading ref indicates whether a submit operation is in progress.
+ * @returns An object containing a submitForm function and a loading ref.
+ * The submitForm function takes a validation result promise, a save function, a payload,
+ * and a sync function, and returns a promise that resolves when the submit operation is complete.
+ * The loading ref indicates whether a submit operation is in progress.
  */
 export function validateAndSave(): { submitForm: (e: Promise<ValidationResult>, saveFunction: SaveFunction, payload: any, sync: SyncFunction) => Promise<void>, loading: Ref<boolean> } {
   const loading: Ref<boolean> = ref(false)

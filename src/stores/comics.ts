@@ -1,6 +1,12 @@
 import { defineStore } from 'pinia'
 import { useUserProfileStore } from '@/stores/user-profile'
 
+declare global {
+  interface ImportMeta {
+    env: Record<string, unknown>
+  }
+}
+
 /**
  * Represents a comic.
  */

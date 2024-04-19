@@ -3,6 +3,15 @@ import { defineStore } from 'pinia'
 import type { Comic } from '@/stores/comics'
 import { useComicsStore } from '@/stores/comics'
 
+/**
+ * Interface for the user profile.
+ * @property {object} flags - Contains user flags.
+ * @property {string} uid - The user ID.
+ * @property {object} names - Contains user's first and last names.
+ * @property {string} email - The user's email.
+ * @property {string} photoURL - The URL of the user's photo.
+ * @property {Comic[]} favorites - The user's favorite comics.
+ */
 interface UserProfile {
   flags?: {
     isNewUser?: boolean
@@ -17,20 +26,40 @@ interface UserProfile {
   favorites?: Comic[]
 }
 
+/**
+ * Defines a store for the user profile.
+ * @returns {Store} The user profile store.
+ */
 export const useUserProfileStore = defineStore('user-profile', {
+  /**
+   * Defines the initial state of the user profile.
+   * @returns {object} The initial user profile state.
+   */
   state: (): { profile: UserProfile | null } => ({
     profile: null,
   }),
 
   getters: {
+    /**
+     * Checks if the user is new.
+     * @returns {boolean | undefined} True if the user is new, false otherwise.
+     */
     isNewUser(): boolean | undefined {
       return this.profile?.flags?.isNewUser
     },
 
+    /**
+     * Gets the user's ID.
+     * @returns {string | undefined} The user's ID.
+     */
     profileId(): string | undefined {
       return this.profile?.uid
     },
 
+    /**
+     * Gets the first initial of the user's first name.
+     * @returns {string | null} The first initial of the user's first name.
+     */
     profileFirstNameInitial(): string | null {
       const { profile } = this
       if (!profile || !profile.names?.firstName)
@@ -39,6 +68,10 @@ export const useUserProfileStore = defineStore('user-profile', {
       return `${capitalize(profile.names.firstName[0])}`
     },
 
+    /**
+     * Gets the user's first name.
+     * @returns {string | null} The user's first name.
+     */
     profileFirstName(): string | null {
       const { profile } = this
       if (!profile || !profile.names?.firstName)
@@ -47,6 +80,10 @@ export const useUserProfileStore = defineStore('user-profile', {
       return `${capitalize(profile.names.firstName)}`
     },
 
+    /**
+     * Gets the user's full name.
+     * @returns {string | null} The user's full name.
+     */
     profileFullName(): string | null {
       const { profile } = this
       if (!profile || !profile.names?.firstName || !profile.names?.lastName)
@@ -55,6 +92,10 @@ export const useUserProfileStore = defineStore('user-profile', {
       return `${capitalize(profile.names.firstName)} ${capitalize(profile.names.lastName)}`
     },
 
+    /**
+     * Gets the user's email.
+     * @returns {string | null} The user's email.
+     */
     profileEmail(): string | null {
       const { profile } = this
       if (!profile)
@@ -62,6 +103,10 @@ export const useUserProfileStore = defineStore('user-profile', {
       return `${profile?.email}`
     },
 
+    /**
+     * Gets the URL of the user's photo.
+     * @returns {string | undefined} The URL of the user's photo.
+     */
     profileAvatar(): string | undefined {
       const { profile } = this
       return profile?.photoURL
@@ -69,15 +114,23 @@ export const useUserProfileStore = defineStore('user-profile', {
   },
 
   actions: {
-
+    /**
+     * Updates the user's names.
+     * @param {object} names - The new names.
+     * @returns {Promise} A promise that resolves when the names have been updated.
+     */
     async updateProfileNames(names: object) {
       return await handleUpdateProfileNames(this.profileId, names)
     },
 
+    /**
+     * Saves a comic to the user's favorites.
+     * @param {object} comic - The comic to save.
+     * @returns {Promise} A promise that resolves when the comic has been saved.
+     */
     async saveFavoriteComic(comic: object) {
       const comicsStore = useComicsStore()
       return await handleSaveFavoriteComic(this.profileId, comic || comicsStore.getComic)
     },
-
   },
 })

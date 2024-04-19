@@ -1,11 +1,16 @@
 import { useDocument } from 'vuefire'
-import { collection } from 'firebase/firestore'
+import { collection, doc } from 'firebase/firestore'
 
 import type { User } from 'firebase/auth'
 import { useAuthStore } from '@/stores/auth'
 import { useUserProfileStore } from '@/stores/user-profile'
 
-export async function setUserAndProfile(firebaseUser) {
+/**
+ * Sets the user and profile data in the auth and user profile stores.
+ * @param {User | null} firebaseUser - The Firebase user to set in the auth store, or null to clear the user.
+ * @throws {Error} When an error occurs during the asynchronous operations.
+ */
+export async function setUserAndProfile(firebaseUser: User | null): Promise<void> {
   const authStore = useAuthStore()
   const profileStore = useUserProfileStore()
 
