@@ -16,7 +16,7 @@ const comicsStore = useComicsStore()
 
       <div class="my-10">
         You haven't favorited any comics yet.
-      </div>c
+      </div>
     </div>
   </VContainer>
   <div class="grid gap-8 sm:grid-cols-1 xl:grid-cols-2 ">
