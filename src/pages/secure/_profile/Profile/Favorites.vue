@@ -10,9 +10,7 @@ const comicsStore = useComicsStore()
 <template>
   <VContainer v-if="!profileStore.profile.favorites.length" class="h-100">
     <div class="align-center justify-center flex flex-col mt-15">
-      <div>
-        <DuoNoresults size="190" />
-      </div>
+      <DuoNoresults size="190" />
 
       <div class="my-10">
         You haven't favorited any comics yet.
