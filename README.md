@@ -26,7 +26,7 @@
 - Quick authentication with google authentication provider
 - Scalable architecture based on component reusability
 - State management with Pinia
-- Proxy server configured in vite for development and in Vercel serveless in a production build.
+- Proxy server configured in vite for development and in Vercel serverless in a production build.
 
    <img width="1024" src="public/fav.png" alt="Kive">
    <img width="1024" src="public/profile.png" alt="Kive">
