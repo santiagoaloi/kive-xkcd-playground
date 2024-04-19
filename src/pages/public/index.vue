@@ -28,7 +28,5 @@ onMounted(() => {
 </script>
 
 <template>
-  <div>
-    <HomeHero />
-  </div>
+  <HomeHero />
 </template>
