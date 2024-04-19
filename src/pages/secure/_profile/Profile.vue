@@ -10,10 +10,7 @@ const profileStore = useUserProfileStore()
       <div class="text-3xl ">
         {{ profileStore.profileFirstName }}'s Profile
       </div>
-
-      <div>
-        Check out your saved comics and change your account settings
-      </div>
+      Check out your saved comics and change your account settings
     </div>
   </div>
 
