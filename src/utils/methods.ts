@@ -1,4 +1,9 @@
-// Function to capitalize the first letter of the input string.
+/**
+ * Capitalizes the first letter of the input string.
+ *
+ * @param str - The string to capitalize.
+ * @returns The input string with the first letter capitalized, or undefined if the input string is falsy.
+ */
 export function capitalize(str: string): string | undefined {
   // If the input string is empty or falsy (e.g., null, undefined, empty string),
   // return 'undefined'.

@@ -1,7 +1,9 @@
 import { defineStore } from 'pinia'
-
 import { useUserProfileStore } from '@/stores/user-profile'
 
+/**
+ * Represents a comic.
+ */
 export interface Comic {
   month: string
   num: number
@@ -16,6 +18,9 @@ export interface Comic {
   day: string
 }
 
+/**
+ * Represents the state of the comics store.
+ */
 interface ComicsState {
   comics: {
     current: Comic
@@ -38,38 +43,42 @@ export const useComicsStore = defineStore('comics-store', {
   }),
 
   getters: {
-
-    isFavorited() {
+    /**
+     * Checks if the current comic is favorited.
+     */
+    isFavorited(): boolean {
       const profileStore = useUserProfileStore()
       return profileStore.profile?.favorites?.some(favorite => favorite.num === this.currentComic) ?? false
     },
-
+    /**
+     * Gets the current comic.
+     */
     getComic: state => state.comics.current,
-    isOldestComic: state => state.currentComic === 1,
-    isNewestComic: state => state.currentComic === state.newestComicId,
 
+    /**
+     * Checks if the current comic is the oldest comic.
+     */
+    isOldestComic: state => state.currentComic === 1,
+
+    /**
+     * Checks if the current comic is the newest comic.
+     */
+    isNewestComic: state => state.currentComic === state.newestComicId,
   },
 
   actions: {
-
-    /*
- * Lookup a favorited comic.
- * Set the correct id in the url and route the hompage
- */
-
+    /**
+     * Looks up a favorited comic, sets the correct id in the url, and routes to the homepage.
+     */
     lookupFavoritedComic(comic: Comic) {
       this.currentComic = comic.num
       this.comics.current = comic
       this.router.push('/')
     },
 
-    /*
- * Get me the most recent comic id.
- * we can use it to fallback to this comic if the user
- * routes to a comic that doesn't exist and also to prevent the user
- * from going to a comic that doesn't exist.
- */
-
+    /**
+     * Gets the id of the most recent comic.
+     */
     async getNewestComicId() {
       const url = this.constructUrl()
 
@@ -85,11 +94,10 @@ export const useComicsStore = defineStore('comics-store', {
       }
     },
 
-    /*
- * Handle all the logic for fetching the comics with the action buttons.
- */
+    /**
+     * Handles all the logic for fetching the comics with the action buttons.
+     */
     async switchComic(id: number) {
-      // Avoid calling the API if the user is already on the comic.
       if (id === this.currentComic)
         return
 
@@ -103,7 +111,6 @@ export const useComicsStore = defineStore('comics-store', {
         this.comics.current = comicData
         this.currentComic = comicData.num
       }
-
       catch (error) {
         router.replace('/NotFound')
         console.error('Error fetching comic:', error)
@@ -113,6 +120,9 @@ export const useComicsStore = defineStore('comics-store', {
       }
     },
 
+    /**
+     * Gets a random comic id.
+     */
     getRandomComicId(this: ComicsState, min = 1, max = this.newestComicId) {
       if (max === null)
         return min
@@ -120,12 +130,10 @@ export const useComicsStore = defineStore('comics-store', {
       return Math.floor(Math.random() * (max - min + 1)) + min
     },
 
+    /**
+     * Constructs a URL for fetching a comic.
+     */
     constructUrl(id: number | string = '') {
-      /*
-  * Dev: Vite proxy
-  * Prod: Vercel serverless proxy.
-  */
-
       const isDev = import.meta.env.DEV
       return isDev
         ? `/api/${id}/info.0.json`

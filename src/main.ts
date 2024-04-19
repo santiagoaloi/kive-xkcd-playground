@@ -1,13 +1,16 @@
-import App from './App.vue'
+import RootApp from './App.vue'
 import { registerPlugins } from './plugins'
 
+// stylesheets
+import 'virtual:uno.css'
 import './styles/tailwind.css'
 import './styles/vuetify-overrides.css'
 
-import 'virtual:uno.css'
+// Create a new Vue app instance
+const kiveApp = createApp(RootApp)
 
-const app = createApp(App)
+// Register plugins with the app
+registerPlugins(kiveApp)
 
-registerPlugins(app)
-
-app.mount('#app')
+// Mount the Vue app to the DOM
+kiveApp.mount('#app')

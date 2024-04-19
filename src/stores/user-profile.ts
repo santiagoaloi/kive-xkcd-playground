@@ -41,18 +41,18 @@ export const useUserProfileStore = defineStore('user-profile', {
 
     profileFirstName(): string | null {
       const { profile } = this
-      if (!profile)
+      if (!profile || !profile.names?.firstName)
         return null
 
-      return `${capitalize(profile?.names?.firstName)}`
+      return `${capitalize(profile.names.firstName)}`
     },
 
     profileFullName(): string | null {
       const { profile } = this
-      if (!profile)
+      if (!profile || !profile.names?.firstName || !profile.names?.lastName)
         return null
 
-      return `${capitalize(profile?.names?.firstName)} ${capitalize(profile?.names?.lastName)}`
+      return `${capitalize(profile.names.firstName)} ${capitalize(profile.names.lastName)}`
     },
 
     profileEmail(): string | null {
@@ -70,11 +70,11 @@ export const useUserProfileStore = defineStore('user-profile', {
 
   actions: {
 
-    async updateProfileNames(names) {
+    async updateProfileNames(names: object) {
       return await handleUpdateProfileNames(this.profileId, names)
     },
 
-    async saveFavoriteComic(comic) {
+    async saveFavoriteComic(comic: object) {
       const comicsStore = useComicsStore()
       return await handleSaveFavoriteComic(this.profileId, comic || comicsStore.getComic)
     },

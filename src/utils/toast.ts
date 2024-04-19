@@ -1,6 +1,12 @@
 import { toast } from 'vuetify-sonner'
 
-export function snackbar(text: string, type?: string): void {
+/**
+ * Displays a snackbar message using the vuetify-sonner toast function.
+ *
+ * @param text - The message to display in the snackbar.
+ * @param type - The type of the snackbar, which determines its color. 'error' results in an error color, any other value results in the primary color.
+ */
+export function snackbar(text: string, type?: 'error' | string): void {
   let color: string
 
   switch (type) {

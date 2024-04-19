@@ -13,5 +13,4 @@ export default {
     size: 'x-small',
     class: 'custom',
   },
-
 }

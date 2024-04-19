@@ -2,10 +2,16 @@ import { defineStore } from 'pinia'
 import type { User } from 'firebase/auth'
 import type { DocumentReference, DocumentSnapshot } from 'firebase/firestore'
 
+/**
+ * Interface for the authentication state.
+ */
 interface AuthState {
   user: User | null
 }
 
+/**
+ * Interface for the user fields.
+ */
 interface UserFields {
   flags: {
     isVerified: boolean
@@ -15,6 +21,9 @@ interface UserFields {
   }
 }
 
+/**
+ * Interface for the user document data.
+ */
 interface UserDocData extends UserFields {
   uid: string
   email: string
@@ -23,8 +32,12 @@ interface UserDocData extends UserFields {
     lastName: string
   }
   photoURL: string
+  favorites: string[]
 }
 
+/**
+ * Define the authentication store.
+ */
 export const useAuthStore = defineStore('auth-store', {
   state: (): AuthState => ({
     user: null,
@@ -36,6 +49,9 @@ export const useAuthStore = defineStore('auth-store', {
   },
 
   actions: {
+    /**
+     * Sign out the current user.
+     */
     async signOutCurrentUser(): Promise<void> {
       const authStore = useAuthStore()
       try {
@@ -47,10 +63,16 @@ export const useAuthStore = defineStore('auth-store', {
       }
     },
 
+    /**
+     * Handle Google authentication error.
+     */
     handleGoogleAuthenticationError(error: any): void {
       console.log(error)
     },
 
+    /**
+     * Get user fields.
+     */
     fields(): UserFields {
       return {
         flags: {
@@ -62,6 +84,9 @@ export const useAuthStore = defineStore('auth-store', {
       }
     },
 
+    /**
+     * Add user to users collection in Google.
+     */
     async addUserToUsersCollectionGoogle(user: User): Promise<{ created: boolean }> {
       const userDocRef: DocumentReference = doc(db, 'users', user.uid)
       const { uid, email, displayName, photoURL } = user
@@ -99,17 +124,26 @@ export const useAuthStore = defineStore('auth-store', {
       }
     },
 
+    /**
+     * Create user profile.
+     */
     async createUserProfile(user: User): Promise<boolean> {
       const profile = await this.addUserToUsersCollectionGoogle(user)
       return profile.created
     },
 
+    /**
+     * Check if user exists.
+     */
     async checkIfUserExists(uid: string): Promise<boolean> {
       const docRef: DocumentReference = doc(db, 'users', uid)
       const docSnap: DocumentSnapshot = await getDoc(docRef)
       return docSnap.exists()
     },
 
+    /**
+     * Authenticate with Google.
+     */
     async authenticateWithGoogle(): Promise<void> {
       try {
         const userCredential = await this.signInWithGooglePopup()
@@ -126,8 +160,10 @@ export const useAuthStore = defineStore('auth-store', {
         this.handleGoogleAuthenticationError(error)
       }
     },
-    // ...
 
+    /**
+     * Sign in with Google popup.
+     */
     async  signInWithGooglePopup() {
       const provider = new GoogleAuthProvider()
       provider.setCustomParameters({
