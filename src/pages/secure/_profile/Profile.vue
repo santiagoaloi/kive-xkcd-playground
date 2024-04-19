@@ -25,9 +25,7 @@ const profileStore = useUserProfileStore()
     </div>
 
     <div class="col-span-12 lg:col-span-9">
-      <div>
-        <RouterView />
-      </div>
+      <RouterView />
     </div>
   </div>
 </template>
