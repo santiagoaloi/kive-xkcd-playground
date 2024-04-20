@@ -7,6 +7,7 @@ const profileStore = useUserProfileStore()
 const { profileFullName, profileEmail, profileAvatar, profile, profileFirstNameInitial } = toRefs(profileStore)
 
 const router = useRouter()
+const route = useRoute()
 
 async function signOutCurrentUser() {
   try {
@@ -17,12 +18,9 @@ async function signOutCurrentUser() {
     // snackbar(`An error occurred: ${error} `, 'error')
   }
   finally {
-    /**
-     * Delays the execution of routing,
-     * helps for a cleanr transition back to the login page.
-     */
-
-    router.replace('/')
+    // Avoid redirecting to the same page and removing the query parameters.
+    if (route.path !== '/')
+      router.replace('/')
   }
 }
 
