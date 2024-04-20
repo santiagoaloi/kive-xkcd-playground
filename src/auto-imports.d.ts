@@ -12,6 +12,7 @@ declare global {
   const arrayUnion: typeof import('firebase/firestore')['arrayUnion']
   const auth: typeof import('@/firebase')['auth']
   const axios: typeof import('axios')['default']
+  const camelCaseToSentence: typeof import('./utils/methods')['camelCaseToSentence']
   const capitalize: typeof import('./utils/methods')['capitalize']
   const cloneDeep: typeof import('lodash-es')['cloneDeep']
   const collection: typeof import('firebase/firestore')['collection']
@@ -85,6 +86,7 @@ declare global {
   const signInWithPopup: typeof import('firebase/auth')['signInWithPopup']
   const signOut: typeof import('firebase/auth')['signOut']
   const snackbar: typeof import('./utils/toast')['snackbar']
+  const startCase: typeof import('lodash-es')['startCase']
   const stores: typeof import('./stores/index')['default']
   const toRaw: typeof import('vue')['toRaw']
   const toRef: typeof import('vue')['toRef']
@@ -138,6 +140,7 @@ declare module 'vue' {
     readonly arrayUnion: UnwrapRef<typeof import('firebase/firestore')['arrayUnion']>
     readonly auth: UnwrapRef<typeof import('@/firebase')['auth']>
     readonly axios: UnwrapRef<typeof import('axios')['default']>
+    readonly camelCaseToSentence: UnwrapRef<typeof import('./utils/methods')['camelCaseToSentence']>
     readonly capitalize: UnwrapRef<typeof import('./utils/methods')['capitalize']>
     readonly cloneDeep: UnwrapRef<typeof import('lodash-es')['cloneDeep']>
     readonly collection: UnwrapRef<typeof import('firebase/firestore')['collection']>
@@ -164,9 +167,7 @@ declare module 'vue' {
     readonly handleUpdateProfileNames: UnwrapRef<typeof import('./services/user-profile/actions/update-profile-names')['handleUpdateProfileNames']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
     readonly isArray: UnwrapRef<typeof import('lodash-es')['isArray']>
-    readonly isEmpty: UnwrapRef<typeof import('lodash-es')['isEmpty']>
     readonly isEqual: UnwrapRef<typeof import('lodash-es')['isEqual']>
-    readonly isFunction: UnwrapRef<typeof import('lodash-es')['isFunction']>
     readonly isObject: UnwrapRef<typeof import('lodash-es')['isObject']>
     readonly isProxy: UnwrapRef<typeof import('vue')['isProxy']>
     readonly isReactive: UnwrapRef<typeof import('vue')['isReactive']>
@@ -174,7 +175,6 @@ declare module 'vue' {
     readonly isRef: UnwrapRef<typeof import('vue')['isRef']>
     readonly markRaw: UnwrapRef<typeof import('vue')['markRaw']>
     readonly nextTick: UnwrapRef<typeof import('vue')['nextTick']>
-    readonly omit: UnwrapRef<typeof import('lodash-es')['omit']>
     readonly onActivated: UnwrapRef<typeof import('vue')['onActivated']>
     readonly onBeforeMount: UnwrapRef<typeof import('vue')['onBeforeMount']>
     readonly onBeforeUnmount: UnwrapRef<typeof import('vue')['onBeforeUnmount']>
@@ -248,6 +248,7 @@ declare module '@vue/runtime-core' {
     readonly arrayUnion: UnwrapRef<typeof import('firebase/firestore')['arrayUnion']>
     readonly auth: UnwrapRef<typeof import('@/firebase')['auth']>
     readonly axios: UnwrapRef<typeof import('axios')['default']>
+    readonly camelCaseToSentence: UnwrapRef<typeof import('./utils/methods')['camelCaseToSentence']>
     readonly capitalize: UnwrapRef<typeof import('./utils/methods')['capitalize']>
     readonly cloneDeep: UnwrapRef<typeof import('lodash-es')['cloneDeep']>
     readonly collection: UnwrapRef<typeof import('firebase/firestore')['collection']>
@@ -274,9 +275,7 @@ declare module '@vue/runtime-core' {
     readonly handleUpdateProfileNames: UnwrapRef<typeof import('./services/user-profile/actions/update-profile-names')['handleUpdateProfileNames']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
     readonly isArray: UnwrapRef<typeof import('lodash-es')['isArray']>
-    readonly isEmpty: UnwrapRef<typeof import('lodash-es')['isEmpty']>
     readonly isEqual: UnwrapRef<typeof import('lodash-es')['isEqual']>
-    readonly isFunction: UnwrapRef<typeof import('lodash-es')['isFunction']>
     readonly isObject: UnwrapRef<typeof import('lodash-es')['isObject']>
     readonly isProxy: UnwrapRef<typeof import('vue')['isProxy']>
     readonly isReactive: UnwrapRef<typeof import('vue')['isReactive']>
@@ -284,7 +283,6 @@ declare module '@vue/runtime-core' {
     readonly isRef: UnwrapRef<typeof import('vue')['isRef']>
     readonly markRaw: UnwrapRef<typeof import('vue')['markRaw']>
     readonly nextTick: UnwrapRef<typeof import('vue')['nextTick']>
-    readonly omit: UnwrapRef<typeof import('lodash-es')['omit']>
     readonly onActivated: UnwrapRef<typeof import('vue')['onActivated']>
     readonly onBeforeMount: UnwrapRef<typeof import('vue')['onBeforeMount']>
     readonly onBeforeUnmount: UnwrapRef<typeof import('vue')['onBeforeUnmount']>

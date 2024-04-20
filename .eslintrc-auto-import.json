@@ -136,6 +136,8 @@
     "Yup": true,
     "snackbar": true,
     "handleSaveFavoriteComic": true,
-    "delay": true
+    "delay": true,
+    "camelCaseToSentence": true,
+    "startCase": true
   }
 }
