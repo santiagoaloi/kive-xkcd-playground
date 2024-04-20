@@ -64,10 +64,12 @@ export async function updateDocumentService(
       const key = toggle.key
       updatedArray = toggleItems(existingArray, payload, key)
     }
+
     else if (dedup) {
       const key = dedup.key
       updatedArray = dedupItems(existingArray, payload, key)
     }
+
     else {
       updatedArray = [...existingArray, ...payload]
     }
@@ -96,6 +98,7 @@ function toggleItems(existingArray: any[], payload: any[], key: string): any[] {
       // item exists, remove it
       return [...acc.slice(0, index), ...acc.slice(index + 1)]
     }
+
     else {
       // item doesn't exist, add it
       return [...acc, item]
