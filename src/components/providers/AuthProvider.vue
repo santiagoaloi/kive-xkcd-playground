@@ -8,8 +8,7 @@ auth.onAuthStateChanged(async (user) => {
   // Update the application's state with the user's information
   await setUserAndProfile(user)
 
-  // Once the user's information has been set, update the loading state to false
-  // This will happy only on the first load of the application.
+  // This will happen only on the first load of the application.
   if (loading.value)
     loading.value = false
 })
