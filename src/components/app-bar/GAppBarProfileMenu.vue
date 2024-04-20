@@ -1,6 +1,4 @@
 <script setup>
-import { capitalize } from '@U/methods'
-
 const authStore = useAuthStore()
 const profileStore = useUserProfileStore()
 
@@ -33,7 +31,7 @@ const { lgAndUp } = useDisplay()
     close-on-content-click offset="24 183"
   >
     <template #activator="{ props }">
-      <RoundedSquareAvatar v-bind="props" :initial="profileFirstNameInitial || ''" :loading="!profile" :src="profileAvatar" account link size="45" />
+      <RoundedSquareAvatar v-bind="props" :initial="profileFirstNameInitial || ''" :loading="!profile" :src="profileAvatar" account link />
     </template>
 
     <VCard v-if="profile" :link="false" :ripple="false" class="p-5" min-width="250" @click.self.stop>
@@ -47,12 +45,16 @@ const { lgAndUp } = useDisplay()
 
         <VDivider class="my-3" />
 
-        <VBtn block class="mb-2" color="primary" to="/profile" variant="text">
-          Profile
-        </VBtn>
-
-        <VBtn block color="primary" to="/profile/favorites" variant="text">
-          Favorites
+        <VBtn
+          v-for="button in [{ name: 'Profile', to: '/profile' }, { name: 'Favorites', to: '/profile/favorites' }]"
+          :key="button.to"
+          :to="button.to"
+          block
+          class="mb-2"
+          color="primary"
+          variant="text"
+        >
+          {{ button.name }}
         </VBtn>
 
         <VDivider class="my-3" />
