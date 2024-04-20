@@ -121,12 +121,12 @@ export const useUserProfileStore = defineStore('user-profile', {
       return await handleUpdateProfileNames(this.profileId, names)
     },
 
-    async saveFavoriteComic(comic: object) {
+    async saveFavoriteComic(comic: Comic) {
       if (!this.profileId)
         throw new Error('Profile ID is undefined')
 
       const comicsStore = useComicsStore()
-      return await handleSaveFavoriteComic(this.profileId, comic as Comic || comicsStore.getComic)
+      return await handleSaveFavoriteComic(this.profileId, comic || comicsStore.getComic)
     },
   },
 })
