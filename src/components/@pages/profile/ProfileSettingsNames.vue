@@ -41,7 +41,7 @@ const orderedKeys = ['firstName', 'lastName']
       <SettingsCard :kbd="changed" subtitle="Tell us who you are 🙂" title="Display Name">
         <VRow>
           <VCol v-for="key in orderedKeys" :key="key" cols="12" sm="6">
-            <VTextField v-model.trim="formFields.names[key]" :label="key" :rules="rules[key]" counter maxlength="16" />
+            <VTextField v-model.trim="formFields.names[key]" :label="camelCaseToSentence(key)" :rules="rules[key]" counter maxlength="16" />
           </VCol>
         </VRow>
 
