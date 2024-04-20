@@ -30,6 +30,9 @@ const rules = {
  */
 
 const { submitForm, loading } = validateAndSave()
+
+// The order in which the form fields are displayed.
+const orderedKeys = ['firstName', 'lastName']
 </script>
 
 <template>
@@ -37,7 +40,7 @@ const { submitForm, loading } = validateAndSave()
     <VForm ref="formRef" @keyup.esc="reset" @submit.prevent="submitForm($event, updateProfileNames, formFields, sync)">
       <SettingsCard :kbd="changed" subtitle="Tell us who you are 🙂" title="Display Name">
         <VRow>
-          <VCol v-for="(_, key) in formFields.names" :key="key" cols="12" sm="6">
+          <VCol v-for="key in orderedKeys" :key="key" cols="12" sm="6">
             <VTextField v-model.trim="formFields.names[key]" :label="key" :rules="rules[key]" counter maxlength="16" />
           </VCol>
         </VRow>
