@@ -65,7 +65,7 @@ export default defineConfig({
             ['*', 'Yup'], // import { * as yup } from 'yup',
           ],
 
-          'lodash-es': ['cloneDeep', 'isEqual', 'isArray', 'isObject', 'isEmpty', 'isFunction', 'omit'],
+          'lodash-es': ['cloneDeep', 'isEqual', 'isArray', 'isObject'],
 
           // Firebase
           '@/firebase': ['db', 'auth'],
