@@ -114,23 +114,19 @@ export const useUserProfileStore = defineStore('user-profile', {
   },
 
   actions: {
-    /**
-     * Updates the user's names.
-     * @param {object} names - The new names.
-     * @returns {Promise} A promise that resolves when the names have been updated.
-     */
-    async updateProfileNames(names: object) {
+    async updateProfileNames(names: Record<string, string>) {
+      if (!this.profileId)
+        throw new Error('Profile ID is undefined')
+
       return await handleUpdateProfileNames(this.profileId, names)
     },
 
-    /**
-     * Saves a comic to the user's favorites.
-     * @param {object} comic - The comic to save.
-     * @returns {Promise} A promise that resolves when the comic has been saved.
-     */
     async saveFavoriteComic(comic: object) {
+      if (!this.profileId)
+        throw new Error('Profile ID is undefined')
+
       const comicsStore = useComicsStore()
-      return await handleSaveFavoriteComic(this.profileId, comic || comicsStore.getComic)
+      return await handleSaveFavoriteComic(this.profileId, comic as Comic || comicsStore.getComic)
     },
   },
 })
