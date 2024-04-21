@@ -26,6 +26,20 @@ h6,
 }
 
 
+.v-field {
+  margin-bottom: 5px;
+  margin-top: 5px;
+}
+
+.v-input__details {
+  margin-top: -5px;
+}
+
+.v-field__outline {
+  color: rgba(var(--v-field-outline));
+}
+
+
 .no-transitions *:not(.v-app-bar) {
   transition-duration: 0s !important; /* Use !important cautiously */
 }
