@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import { useAppStore } from '@/stores/app'
+import { useAuthStore } from '@/stores/auth'
 import { useComicsStore } from '@/stores/comics'
 import { useUserProfileStore } from '@/stores/user-profile'
-import { useAuthStore } from '@/stores/auth'
 
-const comicsStore = useComicsStore()
 const appStore = useAppStore()
-const profileStore = useUserProfileStore()
 const authStore = useAuthStore()
+const comicsStore = useComicsStore()
+const profileStore = useUserProfileStore()
+
+const { lgAndUp } = useDisplay()
 </script>
 
 <template>
@@ -16,7 +18,7 @@ const authStore = useAuthStore()
     :img=" comicsStore.getComic.img"
     :loading="comicsStore.loading && 'primary'"
   >
-    <div class="p-md-5 h-full flex flex-col justify-center bg-greenx">
+    <div class="p-md-5 h-full flex flex-col justify-center">
       <p class="text-5xl lg:text-6xl sm:w-8/12 lg:w-auto  font-bold mb-5">
         {{ comicsStore.getComic.title }}
       </p>
@@ -32,16 +34,22 @@ const authStore = useAuthStore()
 
         <VSpacer />
 
-        <div class="flex gap-3 ">
+        <VChip v-if="lgAndUp" label>
+          {{ comicsStore.paginationDetails }}
+        </VChip>
+
+        <VSpacer />
+
+        <div class="flex gap-3 align-center ">
           <!-- If not authenticated, show the login dialog instead of saving as favorite -->
-          <VBtn color="grey-lighten-3" icon variant="outlined" @click="authStore.isLoggedIn ? profileStore.saveFavoriteComic() : appStore.loginDialog = true ">
-            <VIcon :color="comicsStore.isFavorited ? 'primary' : 'black'" :icon="comicsStore.isFavorited ? 'i-mdi:heart' : 'i-mdi:heart-outline'" />
+          <VBtn :icon="comicsStore.isFavorited ? 'i-mdi:heart' : 'i-mdi:heart-outline'" class="rounded-lg" color="grey-lighten-3" variant="outlined" @click="authStore.isLoggedIn ? profileStore.saveFavoriteComic() : appStore.loginDialog = true ">
+            <VIcon :color="comicsStore.isFavorited ? 'primary' : 'black'" />
           </vbtn>
 
           <!-- Trigger Details for nerds dialog -->
-          <VBtn color="grey-lighten-3" icon variant="outlined" @click="appStore.comicDetailsDialog = true">
-            <VIcon color="black" icon="i-mdi:info-outline" />
-          </vbtn>
+          <VBtn class="rounded-lg" color="grey-lighten-3" icon="i-mdi:info-outline" variant="outlined" @click="appStore.comicDetailsDialog = true">
+            <VIcon color="black" />
+          </VBtn>
         </div>
       </VToolbar>
     </template>
