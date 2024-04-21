@@ -12,7 +12,8 @@ import { useComicsStore } from '@/stores/comics'
  * @property {string} photoURL - The URL of the user's photo.
  * @property {Comic[]} favorites - The user's favorite comics.
  */
-interface UserProfile {
+
+export interface UserProfile {
   flags?: {
     isNewUser?: boolean
   }
@@ -121,12 +122,16 @@ export const useUserProfileStore = defineStore('user-profile', {
       return await handleUpdateProfileNames(this.profileId, names)
     },
 
-    async saveFavoriteComic(comic: Comic) {
+    async saveFavoriteComic(comic?: Comic) {
       if (!this.profileId)
         throw new Error('Profile ID is undefined')
 
       const comicsStore = useComicsStore()
       return await handleSaveFavoriteComic(this.profileId, comic || comicsStore.getComic)
+    },
+
+    async removeAllFavorites() {
+      return await handleRemoveAllFavorites(this.profileId)
     },
   },
 })
