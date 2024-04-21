@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia'
-import { useUserProfileStore } from '@/stores/user-profile'
 
 declare global {
   interface ImportMeta {
@@ -70,6 +69,14 @@ export const useComicsStore = defineStore('comics-store', {
      * Checks if the current comic is the newest comic.
      */
     isNewestComic: state => state.currentComic === state.newestComicId,
+
+    /**
+     * Returns the pagination details.
+     */
+    paginationDetails(): string {
+      return `${this.currentComic} of ${this.newestComicId}`
+    },
+
   },
 
   actions: {
