@@ -138,6 +138,7 @@
     "handleSaveFavoriteComic": true,
     "delay": true,
     "camelCaseToSentence": true,
-    "startCase": true
+    "startCase": true,
+    "handleRemoveAllFavorites": true
   }
 }

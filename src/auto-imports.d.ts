@@ -18,7 +18,6 @@ declare global {
   const collection: typeof import('firebase/firestore')['collection']
   const computed: typeof import('vue')['computed']
   const createApp: typeof import('vue')['createApp']
-  const createNewDocumentService: typeof import('./services/firebase-service')['createNewDocumentService']
   const createUserWithEmailAndPassword: typeof import('firebase/auth')['createUserWithEmailAndPassword']
   const createValidationRule: typeof import('./utils/validations')['createValidationRule']
   const createVuetify: typeof import('vuetify')['createVuetify']
@@ -26,7 +25,6 @@ declare global {
   const db: typeof import('@/firebase')['db']
   const defineAsyncComponent: typeof import('vue')['defineAsyncComponent']
   const defineComponent: typeof import('vue')['defineComponent']
-  const delay: typeof import('./utils/methods')['delay']
   const deleteDoc: typeof import('firebase/firestore')['deleteDoc']
   const doc: typeof import('firebase/firestore')['doc']
   const editRoute: typeof import('./utils/routing')['editRoute']
@@ -35,18 +33,14 @@ declare global {
   const getCurrentScope: typeof import('vue')['getCurrentScope']
   const getDoc: typeof import('firebase/firestore')['getDoc']
   const getDocs: typeof import('firebase/firestore')['getDocs']
-  const getDocumentByIdService: typeof import('./services/firebase-service')['getDocumentByIdService']
-  const getDocumentsByFieldValueService: typeof import('./services/firebase-service')['getDocumentsByFieldValueService']
-  const getDocumentsByIdService: typeof import('./services/firebase-service')['getDocumentsByIdService']
   const getIdToken: typeof import('firebase/auth')['getIdToken']
   const h: typeof import('vue')['h']
+  const handleRemoveAllFavorites: typeof import('./services/user-profile/actions/remove-all-favorites')['handleRemoveAllFavorites']
   const handleSaveFavoriteComic: typeof import('./services/user-profile/actions/save-favorite-comic')['handleSaveFavoriteComic']
   const handleUpdateProfileNames: typeof import('./services/user-profile/actions/update-profile-names')['handleUpdateProfileNames']
   const inject: typeof import('vue')['inject']
   const isArray: typeof import('lodash-es')['isArray']
-  const isEmpty: typeof import('lodash-es')['isEmpty']
   const isEqual: typeof import('lodash-es')['isEqual']
-  const isFunction: typeof import('lodash-es')['isFunction']
   const isObject: typeof import('lodash-es')['isObject']
   const isProxy: typeof import('vue')['isProxy']
   const isReactive: typeof import('vue')['isReactive']
@@ -54,7 +48,6 @@ declare global {
   const isRef: typeof import('vue')['isRef']
   const markRaw: typeof import('vue')['markRaw']
   const nextTick: typeof import('vue')['nextTick']
-  const omit: typeof import('lodash-es')['omit']
   const onActivated: typeof import('vue')['onActivated']
   const onBeforeMount: typeof import('vue')['onBeforeMount']
   const onBeforeUnmount: typeof import('vue')['onBeforeUnmount']
@@ -70,12 +63,10 @@ declare global {
   const onUnmounted: typeof import('vue')['onUnmounted']
   const onUpdated: typeof import('vue')['onUpdated']
   const provide: typeof import('vue')['provide']
-  const pushToArrayFieldService: typeof import('./services/firebase-service')['pushToArrayFieldService']
   const query: typeof import('firebase/firestore')['query']
   const reactive: typeof import('vue')['reactive']
   const readonly: typeof import('vue')['readonly']
   const ref: typeof import('vue')['ref']
-  const removeItemFromArrayService: typeof import('./services/firebase-service')['removeItemFromArrayService']
   const resolveComponent: typeof import('vue')['resolveComponent']
   const saveUserProfileService: typeof import('./services/user-profile/user-profile-service')['saveUserProfileService']
   const setDoc: typeof import('firebase/firestore')['setDoc']
@@ -86,7 +77,6 @@ declare global {
   const signInWithPopup: typeof import('firebase/auth')['signInWithPopup']
   const signOut: typeof import('firebase/auth')['signOut']
   const snackbar: typeof import('./utils/toast')['snackbar']
-  const startCase: typeof import('lodash-es')['startCase']
   const stores: typeof import('./stores/index')['default']
   const toRaw: typeof import('vue')['toRaw']
   const toRef: typeof import('vue')['toRef']
@@ -96,7 +86,6 @@ declare global {
   const unref: typeof import('vue')['unref']
   const updateDoc: typeof import('firebase/firestore')['updateDoc']
   const updateDocumentService: typeof import('./services/firebase-service')['updateDocumentService']
-  const uploadFileService: typeof import('./services/firebase-service')['uploadFileService']
   const useAppStore: typeof import('./stores/app')['useAppStore']
   const useAttrs: typeof import('vue')['useAttrs']
   const useAuthStore: typeof import('./stores/auth')['useAuthStore']
@@ -120,7 +109,6 @@ declare global {
   const watchPostEffect: typeof import('vue')['watchPostEffect']
   const watchSyncEffect: typeof import('vue')['watchSyncEffect']
   const where: typeof import('firebase/firestore')['where']
-  const yup: typeof import('yup')
 }
 // for type re-export
 declare global {
@@ -163,6 +151,7 @@ declare module 'vue' {
     readonly getDocs: UnwrapRef<typeof import('firebase/firestore')['getDocs']>
     readonly getIdToken: UnwrapRef<typeof import('firebase/auth')['getIdToken']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
+    readonly handleRemoveAllFavorites: UnwrapRef<typeof import('./services/user-profile/actions/remove-all-favorites')['handleRemoveAllFavorites']>
     readonly handleSaveFavoriteComic: UnwrapRef<typeof import('./services/user-profile/actions/save-favorite-comic')['handleSaveFavoriteComic']>
     readonly handleUpdateProfileNames: UnwrapRef<typeof import('./services/user-profile/actions/update-profile-names')['handleUpdateProfileNames']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
@@ -271,6 +260,7 @@ declare module '@vue/runtime-core' {
     readonly getDocs: UnwrapRef<typeof import('firebase/firestore')['getDocs']>
     readonly getIdToken: UnwrapRef<typeof import('firebase/auth')['getIdToken']>
     readonly h: UnwrapRef<typeof import('vue')['h']>
+    readonly handleRemoveAllFavorites: UnwrapRef<typeof import('./services/user-profile/actions/remove-all-favorites')['handleRemoveAllFavorites']>
     readonly handleSaveFavoriteComic: UnwrapRef<typeof import('./services/user-profile/actions/save-favorite-comic')['handleSaveFavoriteComic']>
     readonly handleUpdateProfileNames: UnwrapRef<typeof import('./services/user-profile/actions/update-profile-names')['handleUpdateProfileNames']>
     readonly inject: UnwrapRef<typeof import('vue')['inject']>
