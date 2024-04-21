@@ -32,15 +32,19 @@ export interface UserProfile {
  * @returns {Store} The user profile store.
  */
 export const useUserProfileStore = defineStore('user-profile', {
+
+  persist: {
+    paths: ['favoritesViewType'],
+  },
+
   /**
    * Defines the initial state of the user profile.
    * @returns {object} The initial user profile state.
    */
-  state: (): { profile: UserProfile | null } => ({
+  state: (): { profile: UserProfile | null, favoritesViewType: number } => ({
     profile: null,
     favoritesViewType: 1,
   }),
-
   getters: {
     /**
      * Checks if the user is new.
