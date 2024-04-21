@@ -15,7 +15,6 @@
     "@vueuse/router": "^10.9.0",
     "axios": "^1.6.8",
     "firebase": "^10.11.0",
-    "install": "^0.13.0",
     "lodash-es": "^4.17.21",
     "vue": "^3.4.21",
     "vuefire": "^3.1.23",
