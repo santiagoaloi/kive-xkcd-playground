@@ -2,33 +2,38 @@ import materialColors from 'vuetify/util/colors'
 
 export const colors = {
   'primary': {
-    dark: '#7856ff',
+    dark: materialColors.pink.lighten1,
     light: materialColors.pink.base,
   },
+
   'secondary': {
     dark: '#625afa',
     light: '#625afa',
   },
+
   'error': {
     dark: '#ff4081',
     light: '#ff4081',
   },
+
   'surface': {
     dark: '#1e222f',
     light: '#fff',
   },
+
   'surface-hover': {
     dark: '#222635',
     light: '#fcf8ff',
   },
+
   'background': {
     dark: '#191a23',
-    // light: '#f5f7fa'
     light: '#f8fafc',
   },
+
   'link': {
-    dark: '#9499ff',
-    light: '#7856ff',
+    dark: materialColors.indigo.lighten3,
+    light: '#000',
   },
 
   'black-link': {
@@ -52,6 +57,7 @@ export const colors = {
     dark: '#242838',
     light: '#f4f4f4',
   },
+
   'square-avatar': {
     dark: '#383e57',
     light: '#eff1f3',
@@ -61,6 +67,7 @@ export const colors = {
     dark: '#191a23',
     light: '#f5f7fa',
   },
+
   'on-surface': {
     dark: '#adbac7',
     light: '#3b4256',
@@ -95,6 +102,7 @@ export const colors = {
     dark: '#272939',
     light: '#fff',
   },
+
   'accent-button-icon': {
     dark: '',
     light: '#2d8a9d',
@@ -116,7 +124,7 @@ export const colors = {
   },
 
   'field-outline-focus': {
-    dark: '#7281ff',
+    dark: materialColors.blueGrey.darken3,
     light: '#666666',
   },
 
@@ -148,29 +156,9 @@ export const colors = {
   },
 
   // SVG
-  'logoFont': {
+  'logoBackground': {
     dark: '#adbac7',
     light: '#3b4256',
-  },
-
-  'logoCaret': {
-    dark: '#7300f5',
-    light: '#7300f5',
-  },
-
-  'svgStroke': {
-    dark: '#9499ff',
-    light: '#092f63',
-  },
-
-  'strokeOutter': {
-    dark: '#9499ff',
-    light: '#0B1215',
-  },
-
-  'svgFillSoft': {
-    dark: 'transparent',
-    light: '#bcb9ff',
   },
 
 }
