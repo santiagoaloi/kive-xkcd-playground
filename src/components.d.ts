@@ -29,7 +29,9 @@ declare module 'vue' {
     RouterView: typeof import('vue-router')['RouterView']
     SettingsButton: typeof import('./components/buttons/SettingsButton.vue')['default']
     SettingsCard: typeof import('./components/cards/SettingsCard.vue')['default']
+    SJThemeSwitch: typeof import('./components/theme/ThemeSwitch.vue')['default']
     SquareImageCard: typeof import('./components/cards/SquareImageCard.vue')['default']
+    ThemeSwitch: typeof import('./components/theme/ThemeSwitch.vue')['default']
     TrucateText: typeof import('./components/typography/TrucateText.vue')['default']
   }
 }

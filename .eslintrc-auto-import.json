@@ -139,6 +139,10 @@
     "delay": true,
     "camelCaseToSentence": true,
     "startCase": true,
-    "handleRemoveAllFavorites": true
+    "handleRemoveAllFavorites": true,
+    "useThemeStore": true,
+    "useColorMode": true,
+    "useToggle": true,
+    "watchImmediate": true
   }
 }

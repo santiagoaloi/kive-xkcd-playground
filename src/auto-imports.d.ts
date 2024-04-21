@@ -89,6 +89,7 @@ declare global {
   const useAppStore: typeof import('./stores/app')['useAppStore']
   const useAttrs: typeof import('vue')['useAttrs']
   const useAuthStore: typeof import('./stores/auth')['useAuthStore']
+  const useColorMode: typeof import('@vueuse/core')['useColorMode']
   const useComicsStore: typeof import('./stores/comics')['useComicsStore']
   const useCssModule: typeof import('vue')['useCssModule']
   const useCssVars: typeof import('vue')['useCssVars']
@@ -102,10 +103,13 @@ declare global {
   const useRouter: typeof import('vue-router/auto')['useRouter']
   const useSlots: typeof import('vue')['useSlots']
   const useTheme: typeof import('vuetify')['useTheme']
+  const useThemeStore: typeof import('./stores/theme')['useThemeStore']
+  const useToggle: typeof import('@vueuse/core')['useToggle']
   const useUserProfileStore: typeof import('./stores/user-profile')['useUserProfileStore']
   const validateAndSave: typeof import('./utils/stores')['validateAndSave']
   const watch: typeof import('vue')['watch']
   const watchEffect: typeof import('vue')['watchEffect']
+  const watchImmediate: typeof import('@vueuse/core')['watchImmediate']
   const watchPostEffect: typeof import('vue')['watchPostEffect']
   const watchSyncEffect: typeof import('vue')['watchSyncEffect']
   const where: typeof import('firebase/firestore')['where']
@@ -205,6 +209,7 @@ declare module 'vue' {
     readonly useAppStore: UnwrapRef<typeof import('./stores/app')['useAppStore']>
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
     readonly useAuthStore: UnwrapRef<typeof import('./stores/auth')['useAuthStore']>
+    readonly useColorMode: UnwrapRef<typeof import('@vueuse/core')['useColorMode']>
     readonly useComicsStore: UnwrapRef<typeof import('./stores/comics')['useComicsStore']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
@@ -218,10 +223,12 @@ declare module 'vue' {
     readonly useRouter: UnwrapRef<typeof import('vue-router/auto')['useRouter']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
     readonly useTheme: UnwrapRef<typeof import('vuetify')['useTheme']>
+    readonly useThemeStore: UnwrapRef<typeof import('./stores/theme')['useThemeStore']>
     readonly useUserProfileStore: UnwrapRef<typeof import('./stores/user-profile')['useUserProfileStore']>
     readonly validateAndSave: UnwrapRef<typeof import('./utils/stores')['validateAndSave']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchEffect: UnwrapRef<typeof import('vue')['watchEffect']>
+    readonly watchImmediate: UnwrapRef<typeof import('@vueuse/core')['watchImmediate']>
     readonly watchPostEffect: UnwrapRef<typeof import('vue')['watchPostEffect']>
     readonly watchSyncEffect: UnwrapRef<typeof import('vue')['watchSyncEffect']>
     readonly where: UnwrapRef<typeof import('firebase/firestore')['where']>
@@ -314,6 +321,7 @@ declare module '@vue/runtime-core' {
     readonly useAppStore: UnwrapRef<typeof import('./stores/app')['useAppStore']>
     readonly useAttrs: UnwrapRef<typeof import('vue')['useAttrs']>
     readonly useAuthStore: UnwrapRef<typeof import('./stores/auth')['useAuthStore']>
+    readonly useColorMode: UnwrapRef<typeof import('@vueuse/core')['useColorMode']>
     readonly useComicsStore: UnwrapRef<typeof import('./stores/comics')['useComicsStore']>
     readonly useCssModule: UnwrapRef<typeof import('vue')['useCssModule']>
     readonly useCssVars: UnwrapRef<typeof import('vue')['useCssVars']>
@@ -327,10 +335,12 @@ declare module '@vue/runtime-core' {
     readonly useRouter: UnwrapRef<typeof import('vue-router/auto')['useRouter']>
     readonly useSlots: UnwrapRef<typeof import('vue')['useSlots']>
     readonly useTheme: UnwrapRef<typeof import('vuetify')['useTheme']>
+    readonly useThemeStore: UnwrapRef<typeof import('./stores/theme')['useThemeStore']>
     readonly useUserProfileStore: UnwrapRef<typeof import('./stores/user-profile')['useUserProfileStore']>
     readonly validateAndSave: UnwrapRef<typeof import('./utils/stores')['validateAndSave']>
     readonly watch: UnwrapRef<typeof import('vue')['watch']>
     readonly watchEffect: UnwrapRef<typeof import('vue')['watchEffect']>
+    readonly watchImmediate: UnwrapRef<typeof import('@vueuse/core')['watchImmediate']>
     readonly watchPostEffect: UnwrapRef<typeof import('vue')['watchPostEffect']>
     readonly watchSyncEffect: UnwrapRef<typeof import('vue')['watchSyncEffect']>
     readonly where: UnwrapRef<typeof import('firebase/firestore')['where']>
