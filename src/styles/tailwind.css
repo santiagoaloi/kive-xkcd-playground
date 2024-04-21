@@ -24,3 +24,20 @@
  * your stylesheet by default.
  */
 @tailwind variants;
+
+@layer utilities {
+
+    .disabled {
+      @apply pointer-events-none select-none opacity-75;
+    }
+
+    .mobile-stores-buttons {
+      @apply inline-flex w-full cursor-pointer items-center justify-center rounded-lg bg-gray-800 px-4 py-2.5 text-white transition-all duration-200 hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-300 active:translate-y-[1.2px] sm:w-auto dark:bg-[#252b33] dark:hover:bg-gray-600 dark:focus:ring-gray-700;
+    }
+  
+    .active-push-down {
+      @apply cursor-pointer duration-500 active:translate-y-[1.2px] active:duration-500;
+    }
+
+  }
+  
