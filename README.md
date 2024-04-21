@@ -18,9 +18,11 @@
 
 ## Features ✨
 
+- Dark & Light theme
 - Browse all the available comics wth navigation buttons
 - Drill-down comic info for details about image download and metadata
 - Save your favorite comics to your account
+- Choose grid or list view mode to display favorited comics
 - Comic IDs synced up with url params
 - Authentication powered by google firebase
 - Quick authentication with google authentication provider
