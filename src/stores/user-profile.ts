@@ -38,6 +38,7 @@ export const useUserProfileStore = defineStore('user-profile', {
    */
   state: (): { profile: UserProfile | null } => ({
     profile: null,
+    favoritesViewType: 1,
   }),
 
   getters: {
