@@ -5,6 +5,8 @@ const appStore = useAppStore()
 const authStore = useAuthStore()
 
 const { isLoggedIn } = toRefs(authStore)
+
+const { smAndDown } = useDisplay()
 </script>
 
 <template>
@@ -13,11 +15,11 @@ const { isLoggedIn } = toRefs(authStore)
     class="px-3" color="background"
   >
     <VCard
-      :style="`width: ${1450}px`" class="mx-auto flex items-center p-4 justify-center"
+      :style="`width: ${1450}px`" class="mx-auto flex items-center p-4 justify-end gap-3"
       color="app-background" height="68"
     >
       <template v-if="!smAndDown">
-        <RouterLink to="/">
+        <RouterLink :class="$route.path === '/' ? 'pointer-events-none' : ''" to="/">
           <KiveLogo />
         </RouterLink>
 
@@ -26,6 +28,10 @@ const { isLoggedIn } = toRefs(authStore)
         </div>
         <VSpacer />
       </template>
+
+      <VBtn target="_blank"  class="rounded-lg border-0" href="https://github.com/santiagoaloi/kive-xkcd-playground" icon="i-mdi:github" variant="text">
+        <VIcon color="black" />
+      </vbtn>
 
       <template v-if="!isLoggedIn">
         <SettingsButton size="large" @click="appStore.loginDialog = true">
