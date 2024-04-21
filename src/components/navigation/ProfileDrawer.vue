@@ -19,7 +19,7 @@ const sidebar = [
       rounded="lg"
     >
       <template #prepend="{ isActive }">
-        <VIcon :color="isActive && 'primary'" :icon="link.icon" end />
+        <VIcon :color="isActive && 'link'" :icon="link.icon" end />
       </template>
     </VListItem>
 
@@ -36,7 +36,7 @@ const sidebar = [
       :to="link.route" rounded="lg"
     >
       <template #prepend="{ isActive }">
-        <VIcon :color="isActive && 'primary'" :icon="link.icon" end />
+        <VIcon :color="isActive && 'link'" :icon="link.icon" end />
       </template>
     </VListItem>
   </VList>
