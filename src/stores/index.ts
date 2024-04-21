@@ -1,6 +1,7 @@
 // Utilities
 import type { Pinia, Store } from 'pinia'
 import { createPinia } from 'pinia'
+import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import type { Router } from '@/router'
 import router from '@/router'
 
@@ -15,9 +16,13 @@ const pinia: Pinia = createPinia()
  * The router instance is marked as raw using 'markRaw'.
  * This prevents Vue from observing and tracking it in the reactivity system.
  */
-pinia.use(({ store }: { store: Store }) => {
-  store.router = markRaw(router) as Router
-})
+pinia
+
+  .use(({ store }: { store: Store }) => {
+    store.router = markRaw(router) as Router
+  })
+
+  .use(piniaPluginPersistedstate)
 
 /**
  * Exports the configured Pinia instance.
