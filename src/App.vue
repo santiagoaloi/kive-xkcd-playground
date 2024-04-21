@@ -1,5 +1,11 @@
+<script setup lang="ts">
+import { useThemeStore } from '@/stores/theme'
+
+const themeStore = useThemeStore()
+</script>
+
 <template>
-  <VApp class="mx-3">
+  <VApp :theme="themeStore.mode" class="mx-3">
     <AuthProvider>
       <GAppBar />
       <VSheet
@@ -25,3 +31,13 @@
     <GSnackbar />
   </VApp>
 </template>
+
+<style>
+html.dark {
+  background-color: #191a23;
+}
+
+html.light {
+  background-color: #fafafa;
+}
+</style>
