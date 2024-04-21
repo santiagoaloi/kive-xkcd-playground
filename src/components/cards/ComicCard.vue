@@ -26,7 +26,7 @@ defineProps({
   },
 })
 
-const emit = defineEmits('unfavorite', 'clickLink')
+const emit = defineEmits(['unfavorite', 'clickLink'])
 </script>
 
 <template>
@@ -36,12 +36,12 @@ const emit = defineEmits('unfavorite', 'clickLink')
         v-bind="props"
         class="rounded-lg flex flex-col h-full card-color"
       >
-        <VRow>
+        <VRow no-gutters>
           <VCol :cols="viewType ? 12 : 6">
             <VImg
               :class="viewType ? 'border-b' : 'border-r'"
               :src="img"
-              class="w-full prevent-select image-hover-scalex bg-background"
+              class="w-full prevent-select bg-white"
               height="320"
             >
               <template #placeholder>
@@ -53,7 +53,7 @@ const emit = defineEmits('unfavorite', 'clickLink')
           </VCol>
 
           <VCol>
-            <div class="flex h-full flex-col px-5 px-md-8 pb-10">
+            <div class="flex h-full flex-col px-5 px-md-8 pb-10 ">
               <div class="my-2 h-full gap-5 flex flex-col">
                 <div class="flex mt-5 align-center gap-3 h-12">
                   {{ num }}
@@ -61,9 +61,9 @@ const emit = defineEmits('unfavorite', 'clickLink')
                   <VSpacer />
 
                   <VFadeTransition>
-                    <div v-show="isHovering" class="flex gap-3">
+                    <div v-if="isHovering" class="flex gap-3 ">
                       <VBtn
-                        class="rounded-lg" color="grey-lighten-3" icon="i-mdi:heart" variant="outlined"
+                        class="rounded-lg" color="grey-lighten-3" icon="i-mdi:heart" variant="text"
                         @click.stop="emit('unfavorite')"
                       >
                         <VIcon color="primary" />
@@ -71,10 +71,10 @@ const emit = defineEmits('unfavorite', 'clickLink')
 
                       <VBtn
 
-                        class="rounded-lg" color="grey-lighten-3" icon="i-mdi:open-in-new" variant="outlined"
+                        class="rounded-lg" color="grey-lighten-3" icon="i-mdi:open-in-new" variant="text"
                         @click.stop="emit('clickLink')"
                       >
-                        <VIcon color="black" />
+                        <VIcon color="link" />
                       </vbtn>
                     </div>
                   </VFadeTransition>
