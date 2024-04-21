@@ -11,6 +11,4 @@ const kiveApp = createApp(RootApp)
 
 // Register plugins with the app
 registerPlugins(kiveApp)
-
-// Mount the Vue app to the DOM
 kiveApp.mount('#app')
