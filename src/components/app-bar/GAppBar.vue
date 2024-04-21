@@ -18,19 +18,20 @@ const { smAndDown } = useDisplay()
       :style="`width: ${1450}px`" class="mx-auto flex items-center p-4 justify-end gap-3"
       color="app-background" height="68"
     >
-      <template v-if="!smAndDown">
-        <RouterLink :class="$route.path === '/' ? 'pointer-events-none' : ''" to="/">
-          <KiveLogo />
-        </RouterLink>
+      <RouterLink :class="$route.path === '/' ? 'pointer-events-none' : ''" to="/">
+        <KiveLogo />
+      </RouterLink>
 
-        <div class="text-lg">
-          XKCD Comics
-        </div>
-        <VSpacer />
-      </template>
+      <div class="text-lg">
+        XKCD Comics
+      </div>
 
-      <VBtn target="_blank"  class="rounded-lg border-0" href="https://github.com/santiagoaloi/kive-xkcd-playground" icon="i-mdi:github" variant="text">
-        <VIcon color="black" />
+      <VSpacer />
+
+      <ThemeSwitch />
+
+      <VBtn class="rounded-lg border-0" href="https://github.com/santiagoaloi/kive-xkcd-playground" icon="i-mdi:github" target="_blank" variant="text">
+        <VIcon color="link" />
       </vbtn>
 
       <template v-if="!isLoggedIn">
