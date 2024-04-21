@@ -6,7 +6,7 @@ const comicsStore = useComicsStore()
 </script>
 
 <template>
-  <div class="flex sm:flex-row gap-4 mt-5 justify-center sm:justify-start mb-6">
+  <div class="flex sm:flex-row gap-4 align-center">
     <SettingsButton
       :disabled="comicsStore.isOldestComic"
       @click="comicsStore.switchComic('1')"
