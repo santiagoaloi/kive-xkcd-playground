@@ -51,7 +51,7 @@ const { lgAndUp } = useDisplay()
           :to="button.to"
           block
           class="mb-2"
-          color="primary"
+          color="link"
           variant="text"
         >
           {{ button.name }}
@@ -59,7 +59,7 @@ const { lgAndUp } = useDisplay()
 
         <VDivider class="my-3" />
 
-        <VBtn block color="primary" variant="text" @click.stop="signOutCurrentUser()">
+        <VBtn block color="link" variant="text" @click.stop="signOutCurrentUser()">
           Sign out
         </VBtn>
       </div>
