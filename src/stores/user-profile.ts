@@ -132,6 +132,9 @@ export const useUserProfileStore = defineStore('user-profile', {
     },
 
     async removeAllFavorites() {
+      if (!this.profileId)
+        throw new Error('Profile ID is undefined')
+
       return await handleRemoveAllFavorites(this.profileId)
     },
   },
