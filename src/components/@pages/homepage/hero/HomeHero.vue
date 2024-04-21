@@ -42,13 +42,13 @@ const { lgAndUp } = useDisplay()
 
         <div class="flex gap-3 align-center ">
           <!-- If not authenticated, show the login dialog instead of saving as favorite -->
-          <VBtn :icon="comicsStore.isFavorited ? 'i-mdi:heart' : 'i-mdi:heart-outline'" class="rounded-lg" color="grey-lighten-3" variant="outlined" @click="authStore.isLoggedIn ? profileStore.saveFavoriteComic() : appStore.loginDialog = true ">
-            <VIcon :color="comicsStore.isFavorited ? 'primary' : 'black'" />
+          <VBtn :icon="comicsStore.isFavorited ? 'i-mdi:heart' : 'i-mdi:heart-outline'" class="rounded-lg" color="grey-lighten-3" variant="text" @click="authStore.isLoggedIn ? profileStore.saveFavoriteComic() : appStore.loginDialog = true ">
+            <VIcon :color="comicsStore.isFavorited ? 'primary' : 'link'" />
           </vbtn>
 
           <!-- Trigger Details for nerds dialog -->
-          <VBtn class="rounded-lg" color="grey-lighten-3" icon="i-mdi:info-outline" variant="outlined" @click="appStore.comicDetailsDialog = true">
-            <VIcon color="black" />
+          <VBtn class="rounded-lg" color="grey-lighten-3" icon="i-mdi:info-outline" variant="text" @click="appStore.comicDetailsDialog = true">
+            <VIcon color="link" />
           </VBtn>
         </div>
       </VToolbar>
