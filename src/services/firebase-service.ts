@@ -38,6 +38,7 @@ export interface Options {
  * @param options - Options for how to update the document.
  * @returns A promise that resolves when the update is complete.
  */
+
 export async function updateDocumentService(
   collectionName: string,
   documentId: string,
@@ -71,7 +72,7 @@ export async function updateDocumentService(
     }
 
     else {
-      updatedArray = [...existingArray, ...payload]
+      updatedArray = payload.length === 0 ? [] : [...existingArray, ...payload]
     }
 
     await updateDoc(documentRef, { [fieldName]: updatedArray })
@@ -92,7 +93,7 @@ export async function updateDocumentService(
  */
 function toggleItems(existingArray: any[], payload: any[], key: string): any[] {
   return payload.reduce((acc, item) => {
-    const index = acc.findIndex(existingItem => existingItem[key] === item[key])
+    const index = acc.findIndex((existingItem: any) => existingItem[key] === item[key])
 
     if (index !== -1) {
       // item exists, remove it
