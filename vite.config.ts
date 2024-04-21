@@ -61,8 +61,7 @@ export default defineConfig({
           'axios': [['default', 'axios']],
 
           'yup': [
-            // field validations
-            ['*', 'Yup'], // import { * as yup } from 'yup',
+            ['*', 'Yup'], 
           ],
 
           'lodash-es': ['cloneDeep', 'isEqual', 'isArray', 'isObject'],
