@@ -44,8 +44,10 @@ export function validateAndSave(): { submitForm: (e: Promise<ValidationResult>, 
     try {
       const { valid } = await e
 
-      if (!valid)
-        snackbar('Please, correct the required fields.', 'error')
+      if (!valid) {
+        snackbar('Please correct the field marked in red before submitting 🙂', 'error')
+        return
+      }
 
       await saveFunction({ ...payload })
       snackbar('Name has been updated.')
