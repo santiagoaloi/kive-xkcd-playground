@@ -45,10 +45,11 @@ const comicsStore = useComicsStore()
       </div>
     </div>
   </VContainer>
-  <div class="grid gap-8 sm:grid-cols-1 xl:grid-cols-2 ">
+  <div :class="`xl:grid-cols-${profileStore.favoritesViewType ? 2 : 1}`" class="grid gap-8 sm:grid-cols-1 xl">
     <ComicCard
       v-for="comicItem in profileStore.profile.favorites"
-      :key="comicItem.num" v-bind="{ ...comicItem }"
+      :key="comicItem.num"
+      :view-type="profileStore.favoritesViewType" v-bind="{ ...comicItem }"
       @click-link="(id) => comicsStore.lookupFavoritedComic(comicItem)"
       @unfavorite="profileStore.saveFavoriteComic(comicItem)"
     />
