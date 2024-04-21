@@ -17,6 +17,7 @@ export const useThemeStore = defineStore(
      * Current color mode.
      */
     const mode: Ref<string> = useColorMode({
+      initialValue: 'light',
       emitAuto: false,
     })
 
