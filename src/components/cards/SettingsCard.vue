@@ -117,7 +117,7 @@ const { mdAndUp } = useDisplay()
 
       <VDivider v-if="!split && titleDivider" class="mt-1" />
 
-      <div class="px-3 flex flex-col overflow-auto bg-reds h-100">
+      <div class="px-3 flex flex-col overflow-auto h-100">
         <slot name="scrollable" />
       </div>
     </div>

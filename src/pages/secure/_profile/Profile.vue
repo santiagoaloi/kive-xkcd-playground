@@ -6,7 +6,7 @@ const profileStore = useUserProfileStore()
 
 <template>
   <div class="flex">
-    <div class="py-5 border-b pl-3 bg-redx gap-y-2 flex flex-col bg-bluex w-100 text-black dark:text-[#ccc]">
+    <div class="py-5 border-b pl-3 gap-y-2 flex flex-col  w-100 text-black dark:text-[#ccc]">
       <div class="text-3xl ">
         {{ profileStore.profileFirstName }}'s Profile
       </div>
