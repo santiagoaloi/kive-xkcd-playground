@@ -142,7 +142,7 @@ const { mdAndUp } = useDisplay()
 
     <VSheet
       v-if="$slots.footer && !hideFooter"
-      class="border-t ronded-0 items-end align-center justify-center inline-flex bg-surface-footer"
+      class="border-t ronded-0 items-center align-center justify-center inline-flex bg-surface-footer"
       min-height="60"
     >
       <FormActions class="flex w-100 gap-3 mx-4">
