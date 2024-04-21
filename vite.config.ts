@@ -13,7 +13,7 @@ import UnoCSS from 'unocss/vite'
 
 // Utilities
 import { defineConfig } from 'vite'
-import { editRoute } from './src/utils/routing'
+import { editRoute } from '@/src/utils/routing'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -61,7 +61,7 @@ export default defineConfig({
           'axios': [['default', 'axios']],
 
           'yup': [
-            ['*', 'Yup'], 
+            ['*', 'Yup'],
           ],
 
           'lodash-es': ['cloneDeep', 'isEqual', 'isArray', 'isObject'],
