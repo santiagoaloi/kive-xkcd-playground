@@ -64,6 +64,11 @@ export default defineConfig({
             ['*', 'Yup'],
           ],
 
+          '@vueuse/core': [
+            'watchImmediate',
+            'useColorMode',
+          ],
+
           'lodash-es': ['cloneDeep', 'isEqual', 'isArray', 'isObject'],
 
           // Firebase
